@@ -21,7 +21,9 @@ def mine_dfg(log, output_path=None):
     gviz = dfg_visualizer.apply(dfg, log=log, variant=dfg_visualizer.Variants.FREQUENCY)
     mine_vis(dfg_visualizer, gviz, output_path)
         
-        
+    
+# (todo - get annotations such as frequency/performance here as well)
+
 def mine_alpha(log, output_path=None):
     # alpha miner
     net, initial_marking, final_marking = alpha_miner.apply(log)
