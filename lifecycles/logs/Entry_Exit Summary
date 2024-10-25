@@ -1,0 +1,72 @@
+,case:concept:name,time:timestamp,activity,concept:name
+15896,227,2024-06-25 01:54:59.777,Entry/Exit Summary,Submit
+15897,227,2024-06-25 01:55:01.420,Entry/Exit Summary,Sent
+15898,227,2024-06-25 01:55:11.080,Entry/Exit Summary,Ready to be Assessed
+15907,227,2024-07-04 05:43:42.043,Entry/Exit Summary,Complete - Not Reviewed
+61192,880,2024-07-23 15:14:16.140,Entry/Exit Summary,Submit
+61193,880,2024-07-23 15:14:17.413,Entry/Exit Summary,Sent
+61194,880,2024-07-23 15:14:31.777,Entry/Exit Summary,Ready to be Assessed
+61195,880,2024-07-23 15:14:42.857,Entry/Exit Summary,Complete - Match
+152210,2180,2024-06-25 03:57:16.667,Entry/Exit Summary,Submit
+152211,2180,2024-06-25 03:57:19.127,Entry/Exit Summary,Sent
+152212,2180,2024-06-25 03:57:27.507,Entry/Exit Summary,Ready to be Assessed
+152220,2180,2024-07-04 05:48:27.260,Entry/Exit Summary,Complete - Not Reviewed
+166329,2379,2024-07-26 03:21:10.857,Entry/Exit Summary,Submit
+166330,2379,2024-07-26 03:21:11.237,Entry/Exit Summary,Sent
+166331,2379,2024-07-26 03:21:18.847,Entry/Exit Summary,NRT
+176846,2528,2024-06-17 21:31:41.263,Entry/Exit Summary,Not Started
+176847,2528,2024-06-17 21:31:44.163,Entry/Exit Summary,Submit
+176848,2528,2024-06-17 21:31:45.563,Entry/Exit Summary,Sent
+176849,2528,2024-06-17 21:32:03.323,Entry/Exit Summary,NRT
+183151,2619,2024-07-03 18:48:09.937,Entry/Exit Summary,Submit
+183152,2619,2024-07-03 18:48:16.130,Entry/Exit Summary,Sent
+183153,2619,2024-07-03 18:48:24.590,Entry/Exit Summary,Ready to be Assessed
+183154,2619,2024-07-03 18:48:49.877,Entry/Exit Summary,Complete - Match
+207015,2951,2024-06-27 03:17:52.563,Entry/Exit Summary,Submit
+207016,2951,2024-06-27 03:18:00.890,Entry/Exit Summary,Sent
+207017,2951,2024-06-27 03:18:10.590,Entry/Exit Summary,Ready to be Assessed
+207018,2951,2024-06-27 03:18:27.767,Entry/Exit Summary,Complete - Match
+212212,3028,2024-06-26 01:24:22.997,Entry/Exit Summary,Submit
+212213,3028,2024-06-26 01:24:24.940,Entry/Exit Summary,Sent
+212214,3028,2024-06-26 01:24:35.740,Entry/Exit Summary,Ready to be Assessed
+212220,3028,2024-07-04 05:48:54.183,Entry/Exit Summary,Complete - Not Reviewed
+215043,3069,2024-06-26 01:41:50.053,Entry/Exit Summary,Submit
+215044,3069,2024-06-26 01:41:51.833,Entry/Exit Summary,Sent
+215045,3069,2024-06-26 01:42:01.833,Entry/Exit Summary,Ready to be Assessed
+215048,3069,2024-07-04 05:50:19.327,Entry/Exit Summary,Complete - Not Reviewed
+281542,4003,2024-06-24 20:02:55.090,Entry/Exit Summary,Submit
+281543,4003,2024-06-24 20:02:57.660,Entry/Exit Summary,Sent
+281544,4003,2024-06-24 20:03:21.513,Entry/Exit Summary,Ready to be Assessed
+281545,4003,2024-06-24 20:03:58.157,Entry/Exit Summary,Complete - Match
+294913,4194,2024-06-24 20:18:11.960,Entry/Exit Summary,Submit
+294914,4194,2024-06-24 20:18:13.877,Entry/Exit Summary,Sent
+294915,4194,2024-06-24 20:18:21.493,Entry/Exit Summary,Ready to be Assessed
+294916,4194,2024-06-24 20:18:53.280,Entry/Exit Summary,Complete - Match
+327881,4672,2024-06-27 04:03:57.730,Entry/Exit Summary,Submit
+327882,4672,2024-06-27 04:03:59.553,Entry/Exit Summary,Sent
+327883,4672,2024-06-27 04:04:08.863,Entry/Exit Summary,Ready to be Assessed
+327884,4672,2024-06-27 04:23:11.687,Entry/Exit Summary,Complete - Match
+358049,5105,2024-06-27 05:33:52.210,Entry/Exit Summary,Submit
+358050,5105,2024-06-27 05:33:53.690,Entry/Exit Summary,Sent
+358051,5105,2024-06-27 05:34:05.953,Entry/Exit Summary,Ready to be Assessed
+358059,5105,2024-07-11 04:35:41.860,Entry/Exit Summary,Complete - Match
+405885,5787,2024-06-20 07:13:57.067,Entry/Exit Summary,Not Started
+405886,5787,2024-06-20 07:14:07.900,Entry/Exit Summary,Submit
+405887,5787,2024-06-20 07:14:09.977,Entry/Exit Summary,Sent
+405888,5787,2024-06-20 07:14:17.547,Entry/Exit Summary,NRT
+442609,6307,2024-06-28 01:13:32.680,Entry/Exit Summary,Submit
+442610,6307,2024-06-28 01:13:34.990,Entry/Exit Summary,Sent
+442611,6307,2024-06-28 01:13:44.370,Entry/Exit Summary,Ready to be Assessed
+442613,6307,2024-07-17 03:20:35.867,Entry/Exit Summary,Complete - Match
+462600,6591,2024-06-28 02:03:53.950,Entry/Exit Summary,Submit
+462601,6591,2024-06-28 02:03:56.523,Entry/Exit Summary,Sent
+462602,6591,2024-06-28 02:04:04.483,Entry/Exit Summary,Ready to be Assessed
+462604,6591,2024-07-22 03:31:02.503,Entry/Exit Summary,Complete - Match
+489943,6975,2024-08-01 18:36:29.300,Entry/Exit Summary,Submit
+489944,6975,2024-08-01 18:36:31.800,Entry/Exit Summary,Sent
+489945,6975,2024-08-01 18:36:39.440,Entry/Exit Summary,Retransmission Required
+489946,6975,2024-08-01 18:36:39.537,Entry/Exit Summary,Not Started
+489947,6975,2024-08-01 18:38:34.837,Entry/Exit Summary,Submit
+489948,6975,2024-08-01 18:38:36.697,Entry/Exit Summary,Sent
+489949,6975,2024-08-01 18:38:46.423,Entry/Exit Summary,Ready to be Assessed
+489950,6975,2024-08-01 18:39:00.803,Entry/Exit Summary,Complete - Match

@@ -1,0 +1,35 @@
+,case:concept:name,time:timestamp,activity,concept:name
+53156,765,2024-07-18 08:20:58.163,Verification-QA,In Progress - Level 1
+53158,765,2024-07-18 08:23:08.700,Verification-QA,Completed
+61109,879,2024-07-02 14:34:18.137,Verification-QA,Not Started
+61115,879,2024-07-03 18:34:37.217,Verification-QA,Cancelled
+95270,1364,2024-07-04 15:28:00.770,Verification-QA,Not Started
+95272,1364,2024-07-04 20:15:05.460,Verification-QA,Cancelled
+176850,2528,2024-06-18 17:01:37.337,Verification-QA,Not Started
+176852,2528,2024-06-18 17:04:03.333,Verification-QA,In Progress - Level 1
+176860,2528,2024-06-19 19:14:27.307,Verification-QA,Completed
+201311,2869,2024-06-18 17:04:57.063,Verification-QA,Not Started
+201313,2869,2024-06-18 17:06:23.587,Verification-QA,In Progress - Level 1
+201315,2869,2024-06-25 17:16:50.297,Verification-QA,Completed
+203386,2898,2024-07-24 20:19:05.310,Verification-QA,Not Started
+203389,2898,2024-08-01 19:16:41.120,Verification-QA,Cancelled
+232015,3310,2024-06-13 12:12:28.430,Verification-QA,Not Started
+232017,3310,2024-06-13 17:37:23.517,Verification-QA,Cancelled
+235655,3360,2024-07-18 11:45:40.370,Verification-QA,Not Started
+235657,3360,2024-07-18 15:08:55.103,Verification-QA,In Progress - Level 1
+235659,3360,2024-07-26 12:12:44.817,Verification-QA,Completed
+244894,3488,2024-07-16 12:53:02.887,Verification-QA,Not Started
+244900,3488,2024-08-01 15:24:34.127,Verification-QA,Cancelled
+288905,4106,2024-06-18 17:07:30.237,Verification-QA,Not Started
+288907,4106,2024-06-18 17:09:05.260,Verification-QA,In Progress - Level 1
+288909,4106,2024-06-26 21:29:11.693,Verification-QA,Completed
+326223,4648,2024-07-03 18:52:27.257,Verification-QA,Not Started
+326225,4648,2024-07-08 17:34:03.450,Verification-QA,Cancelled
+332923,4745,2024-07-03 19:26:41.437,Verification-QA,Not Started
+332925,4745,2024-07-08 17:42:48.650,Verification-QA,Cancelled
+336618,4797,2024-07-17 17:55:06.170,Verification-QA,Not Started
+336620,4797,2024-07-18 15:34:04.750,Verification-QA,In Progress - Level 1
+336622,4797,2024-07-19 12:17:20.153,Verification-QA,Completed
+380811,5429,2024-07-18 12:07:17.137,Verification-QA,Not Started
+449035,6400,2024-07-09 14:12:20.913,Verification-QA,Not Started
+452275,6445,2024-06-13 16:27:29.673,Verification-QA,Not Started
