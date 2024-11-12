@@ -108,10 +108,10 @@ def aggregate_events(log, events, max_timedelta, repl=None, verbose=False):
     
     total_groups = 0; total_size = 0
     total_simult = 0; total_diff = 0; non_simul = []
-    activ_orders = {
-        (events[0], events[-1]): 0, 
-        (events[-1], events[0]): 0, 
-    }
+    # activ_orders = {
+    #     (events[0], events[-1]): 0, 
+    #     (events[-1], events[0]): 0, 
+    # }
     
     class Group:        
         def __init__(self):
@@ -160,7 +160,7 @@ def aggregate_events(log, events, max_timedelta, repl=None, verbose=False):
         return cur_case, cur_group
             
     def record_group(cur_case, cur_group, init_evt=None):
-        nonlocal total_groups, total_size, total_simult, total_diff, activ_orders
+        nonlocal total_groups, total_size, total_simult, total_diff #, activ_orders
         if verbose and cur_group.size() != len(events):
             print(f"case {cur_case.id}: non-complete group {cur_group}")
         
@@ -249,7 +249,7 @@ def aggregate_events(log, events, max_timedelta, repl=None, verbose=False):
     print("# groups:", total_groups, "total size:", total_size, "avg size:", round(total_size/total_groups, 2))
     print("# groups:", total_groups, "# simult:", total_simult, "avg:", round(total_simult/total_groups*100, 2), "%")
     print("# groups:", total_groups, "avg_diff:", int(total_diff/total_groups), "s", "(", int(total_diff/total_groups/60), "m", ")")
-    print(activ_orders)
+    # print(activ_orders)
     
     return log.drop(to_drop)
     

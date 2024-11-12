@@ -1,0 +1,15 @@
+activity Candidate Search:start
+activity Integrated Search:start
+activity Candidate ID:start
+activity Candidate ID Decision:start
+activity Integrated Search:end
+activity Candidate Search:end
+activity Candidate ID:end
+activity Candidate ID Decision:end
+Chain Succession[Candidate Search:start, Integrated Search:start] | | |
+Succession[Integrated Search:start, Integrated Search:end] | | |
+Succession[Integrated Search:end, Candidate Search:end] | | |
+Succession[Integrated Search:start, Candidate ID:start] | | |
+Chain Succession[Candidate ID:start, Candidate ID Decision:start] | | |
+Succession[Candidate ID Decision:start, Candidate ID:end] | | |
+Chain Succession[Candidate ID:end, Candidate ID Decision:end] | | |
