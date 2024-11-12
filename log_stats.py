@@ -32,7 +32,8 @@ def count_events(evt_col, case_col, log, plot=True):
     # for idx, row in evt_counts.items():
     #     print(idx, row[0], row[1])
     if plot:
-        evt_counts[['perc']].plot.bar()
+        ax = evt_counts[['perc']].plot.bar()
+        ax.xaxis.set_visible(False)
     return evt_counts
 
 # per event, count number of cases that it occurs in (absolute & percentage)
@@ -43,7 +44,8 @@ def count_cases_per_event(evt_col, case_col, log, plot=True):
     evts_cases['perc'] = 100 / total_cases * evts_cases['cases']
     evt_cases = evts_cases.sort_values(by='perc', ascending=False)
     if plot:
-        evt_cases[['perc']].plot.bar()
+        ax = evt_cases[['perc']].plot.bar()
+        ax.xaxis.set_visible(False)
     return evt_cases
 
 # filter log
@@ -60,5 +62,6 @@ def get_trace_lengths(evt_col, case_col, log, plot=True):
     # for idx, cnt in trace_lens.items():
     #     print(idx, cnt)
     if plot:
-        trace_lens.plot.bar()
+        ax = trace_lens.plot.bar()
+        ax.xaxis.set_visible(False)
     return trace_lens

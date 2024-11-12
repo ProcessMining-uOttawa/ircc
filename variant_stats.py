@@ -1,5 +1,6 @@
 import pandas as pd
 import pm4py
+from collections import Counter
 from collections_extended import frozenbag
 from pm4py.objects.conversion.log import converter as log_converter
 from pm4py.objects.log.obj import EventLog
@@ -10,7 +11,10 @@ from pm4py.objects.log.obj import EventLog
 def get_variants(log, unordered=False, verbose=False):
     if verbose:
         print("# total:", len(log['case:concept:name'].unique()))
-    variants = pm4py.get_variants(log)
+    
+    variants = log.groupby('case:concept:name')['concept:name'].agg(tuple).to_dict()
+    variants = Counter(variants.values())
+    
     if verbose:
         print("# unique variants:", len(list(variants.keys())))
     if unordered:
@@ -81,4 +85,7 @@ def filter_traces_on_variants(log, variants):
     merged_log = log.merge(traces) # will merge on case:concept:name
     
     # filter all events with a sequence found in variants
-    return merged_log[merged_log['sequence'].isin(variants['sequence'])]
+    filtered_log = merged_log[merged_log['sequence'].isin(variants['sequence'])]
+    filtered_log = filtered_log[['case:concept:name', 'concept:name', 'time:timestamp']]
+    
+    return filtered_log
