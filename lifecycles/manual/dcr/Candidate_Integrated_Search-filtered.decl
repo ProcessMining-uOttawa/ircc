@@ -1,0 +1,376 @@
+activity Candidate Search:start
+activity Integrated Search:start
+activity Integrated Search:end
+activity Candidate ID:start
+activity Candidate ID Decision:start
+activity Candidate Search:end
+activity Candidate ID:end
+activity Candidate ID Decision:end
+Existence1[Integrated Search:start] | |
+Exactly1[Integrated Search:start] | |
+Existence1[Integrated Search:end] | |
+Exactly1[Integrated Search:end] | |
+Existence1[Candidate Search:start] | |
+Exactly1[Candidate Search:start] | |
+Init[Candidate Search:start] | |
+Existence1[Candidate Search:end] | |
+Exactly1[Candidate Search:end] | |
+Existence1[Candidate ID Decision:start] | |
+Exactly1[Candidate ID Decision:start] | |
+Existence1[Candidate ID Decision:end] | |
+Exactly1[Candidate ID Decision:end] | |
+End[Candidate ID Decision:end] | |
+Existence1[Candidate ID:start] | |
+Exactly1[Candidate ID:start] | |
+Existence1[Candidate ID:end] | |
+Exactly1[Candidate ID:end] | |
+Choice[Integrated Search:start, Integrated Search:end] | |
+Choice[Integrated Search:end, Integrated Search:start] | |
+Responded Existence[Integrated Search:start, Integrated Search:end] | |
+Responded Existence[Integrated Search:end, Integrated Search:start] | |
+Response[Integrated Search:start, Integrated Search:end] | |
+Alternate Response[Integrated Search:start, Integrated Search:end] | |
+Precedence[Integrated Search:start, Integrated Search:end] | |
+Alternate Precedence[Integrated Search:start, Integrated Search:end] | |
+Not Response[Integrated Search:end, Integrated Search:start] | |
+Not Precedence[Integrated Search:end, Integrated Search:start] | |
+Not Chain Response[Integrated Search:end, Integrated Search:start] | |
+Not Chain Precedence[Integrated Search:end, Integrated Search:start] | |
+Choice[Integrated Search:start, Candidate Search:start] | |
+Choice[Candidate Search:start, Integrated Search:start] | |
+Responded Existence[Integrated Search:start, Candidate Search:start] | |
+Responded Existence[Candidate Search:start, Integrated Search:start] | |
+Response[Candidate Search:start, Integrated Search:start] | |
+Alternate Response[Candidate Search:start, Integrated Search:start] | |
+Chain Response[Candidate Search:start, Integrated Search:start] | |
+Precedence[Candidate Search:start, Integrated Search:start] | |
+Alternate Precedence[Candidate Search:start, Integrated Search:start] | |
+Chain Precedence[Candidate Search:start, Integrated Search:start] | |
+Not Response[Integrated Search:start, Candidate Search:start] | |
+Not Precedence[Integrated Search:start, Candidate Search:start] | |
+Not Chain Response[Integrated Search:start, Candidate Search:start] | |
+Not Chain Precedence[Integrated Search:start, Candidate Search:start] | |
+Choice[Candidate Search:end, Integrated Search:start] | |
+Choice[Integrated Search:start, Candidate Search:end] | |
+Responded Existence[Candidate Search:end, Integrated Search:start] | |
+Responded Existence[Integrated Search:start, Candidate Search:end] | |
+Response[Integrated Search:start, Candidate Search:end] | |
+Alternate Response[Integrated Search:start, Candidate Search:end] | |
+Precedence[Integrated Search:start, Candidate Search:end] | |
+Alternate Precedence[Integrated Search:start, Candidate Search:end] | |
+Not Response[Candidate Search:end, Integrated Search:start] | |
+Not Precedence[Candidate Search:end, Integrated Search:start] | |
+Not Chain Response[Candidate Search:end, Integrated Search:start] | |
+Not Chain Response[Integrated Search:start, Candidate Search:end] | |
+Not Chain Precedence[Candidate Search:end, Integrated Search:start] | |
+Not Chain Precedence[Integrated Search:start, Candidate Search:end] | |
+Choice[Integrated Search:start, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:start, Integrated Search:start] | |
+Responded Existence[Integrated Search:start, Candidate ID Decision:start] | |
+Responded Existence[Candidate ID Decision:start, Integrated Search:start] | |
+Response[Integrated Search:start, Candidate ID Decision:start] | |
+Alternate Response[Integrated Search:start, Candidate ID Decision:start] | |
+Precedence[Integrated Search:start, Candidate ID Decision:start] | |
+Alternate Precedence[Integrated Search:start, Candidate ID Decision:start] | |
+Not Response[Candidate ID Decision:start, Integrated Search:start] | |
+Not Precedence[Candidate ID Decision:start, Integrated Search:start] | |
+Not Chain Response[Integrated Search:start, Candidate ID Decision:start] | |
+Not Chain Response[Candidate ID Decision:start, Integrated Search:start] | |
+Not Chain Precedence[Integrated Search:start, Candidate ID Decision:start] | |
+Not Chain Precedence[Candidate ID Decision:start, Integrated Search:start] | |
+Choice[Candidate ID Decision:end, Integrated Search:start] | |
+Choice[Integrated Search:start, Candidate ID Decision:end] | |
+Responded Existence[Candidate ID Decision:end, Integrated Search:start] | |
+Responded Existence[Integrated Search:start, Candidate ID Decision:end] | |
+Response[Integrated Search:start, Candidate ID Decision:end] | |
+Alternate Response[Integrated Search:start, Candidate ID Decision:end] | |
+Precedence[Integrated Search:start, Candidate ID Decision:end] | |
+Alternate Precedence[Integrated Search:start, Candidate ID Decision:end] | |
+Not Response[Candidate ID Decision:end, Integrated Search:start] | |
+Not Precedence[Candidate ID Decision:end, Integrated Search:start] | |
+Not Chain Response[Candidate ID Decision:end, Integrated Search:start] | |
+Not Chain Response[Integrated Search:start, Candidate ID Decision:end] | |
+Not Chain Precedence[Candidate ID Decision:end, Integrated Search:start] | |
+Not Chain Precedence[Integrated Search:start, Candidate ID Decision:end] | |
+Choice[Integrated Search:start, Candidate ID:start] | |
+Choice[Candidate ID:start, Integrated Search:start] | |
+Responded Existence[Integrated Search:start, Candidate ID:start] | |
+Responded Existence[Candidate ID:start, Integrated Search:start] | |
+Response[Integrated Search:start, Candidate ID:start] | |
+Alternate Response[Integrated Search:start, Candidate ID:start] | |
+Precedence[Integrated Search:start, Candidate ID:start] | |
+Alternate Precedence[Integrated Search:start, Candidate ID:start] | |
+Not Response[Candidate ID:start, Integrated Search:start] | |
+Not Precedence[Candidate ID:start, Integrated Search:start] | |
+Not Chain Response[Candidate ID:start, Integrated Search:start] | |
+Not Chain Precedence[Candidate ID:start, Integrated Search:start] | |
+Choice[Integrated Search:start, Candidate ID:end] | |
+Choice[Candidate ID:end, Integrated Search:start] | |
+Responded Existence[Integrated Search:start, Candidate ID:end] | |
+Responded Existence[Candidate ID:end, Integrated Search:start] | |
+Response[Integrated Search:start, Candidate ID:end] | |
+Alternate Response[Integrated Search:start, Candidate ID:end] | |
+Precedence[Integrated Search:start, Candidate ID:end] | |
+Alternate Precedence[Integrated Search:start, Candidate ID:end] | |
+Not Response[Candidate ID:end, Integrated Search:start] | |
+Not Precedence[Candidate ID:end, Integrated Search:start] | |
+Not Chain Response[Integrated Search:start, Candidate ID:end] | |
+Not Chain Response[Candidate ID:end, Integrated Search:start] | |
+Not Chain Precedence[Integrated Search:start, Candidate ID:end] | |
+Not Chain Precedence[Candidate ID:end, Integrated Search:start] | |
+Choice[Candidate Search:start, Integrated Search:end] | |
+Choice[Integrated Search:end, Candidate Search:start] | |
+Responded Existence[Candidate Search:start, Integrated Search:end] | |
+Responded Existence[Integrated Search:end, Candidate Search:start] | |
+Response[Candidate Search:start, Integrated Search:end] | |
+Alternate Response[Candidate Search:start, Integrated Search:end] | |
+Precedence[Candidate Search:start, Integrated Search:end] | |
+Alternate Precedence[Candidate Search:start, Integrated Search:end] | |
+Not Response[Integrated Search:end, Candidate Search:start] | |
+Not Precedence[Integrated Search:end, Candidate Search:start] | |
+Not Chain Response[Candidate Search:start, Integrated Search:end] | |
+Not Chain Response[Integrated Search:end, Candidate Search:start] | |
+Not Chain Precedence[Candidate Search:start, Integrated Search:end] | |
+Not Chain Precedence[Integrated Search:end, Candidate Search:start] | |
+Choice[Candidate Search:end, Integrated Search:end] | |
+Choice[Integrated Search:end, Candidate Search:end] | |
+Responded Existence[Candidate Search:end, Integrated Search:end] | |
+Responded Existence[Integrated Search:end, Candidate Search:end] | |
+Response[Integrated Search:end, Candidate Search:end] | |
+Alternate Response[Integrated Search:end, Candidate Search:end] | |
+Precedence[Integrated Search:end, Candidate Search:end] | |
+Alternate Precedence[Integrated Search:end, Candidate Search:end] | |
+Not Response[Candidate Search:end, Integrated Search:end] | |
+Not Precedence[Candidate Search:end, Integrated Search:end] | |
+Not Chain Response[Candidate Search:end, Integrated Search:end] | |
+Not Chain Precedence[Candidate Search:end, Integrated Search:end] | |
+Choice[Integrated Search:end, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:start, Integrated Search:end] | |
+Responded Existence[Integrated Search:end, Candidate ID Decision:start] | |
+Responded Existence[Candidate ID Decision:start, Integrated Search:end] | |
+Not Chain Response[Integrated Search:end, Candidate ID Decision:start] | |
+Not Chain Precedence[Integrated Search:end, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:end, Integrated Search:end] | |
+Choice[Integrated Search:end, Candidate ID Decision:end] | |
+Responded Existence[Candidate ID Decision:end, Integrated Search:end] | |
+Responded Existence[Integrated Search:end, Candidate ID Decision:end] | |
+Response[Integrated Search:end, Candidate ID Decision:end] | |
+Alternate Response[Integrated Search:end, Candidate ID Decision:end] | |
+Precedence[Integrated Search:end, Candidate ID Decision:end] | |
+Alternate Precedence[Integrated Search:end, Candidate ID Decision:end] | |
+Not Response[Candidate ID Decision:end, Integrated Search:end] | |
+Not Precedence[Candidate ID Decision:end, Integrated Search:end] | |
+Not Chain Response[Candidate ID Decision:end, Integrated Search:end] | |
+Not Chain Response[Integrated Search:end, Candidate ID Decision:end] | |
+Not Chain Precedence[Candidate ID Decision:end, Integrated Search:end] | |
+Not Chain Precedence[Integrated Search:end, Candidate ID Decision:end] | |
+Choice[Candidate ID:start, Integrated Search:end] | |
+Choice[Integrated Search:end, Candidate ID:start] | |
+Responded Existence[Candidate ID:start, Integrated Search:end] | |
+Responded Existence[Integrated Search:end, Candidate ID:start] | |
+Not Chain Response[Candidate ID:start, Integrated Search:end] | |
+Not Chain Precedence[Candidate ID:start, Integrated Search:end] | |
+Choice[Candidate ID:end, Integrated Search:end] | |
+Choice[Integrated Search:end, Candidate ID:end] | |
+Responded Existence[Candidate ID:end, Integrated Search:end] | |
+Responded Existence[Integrated Search:end, Candidate ID:end] | |
+Response[Integrated Search:end, Candidate ID:end] | |
+Alternate Response[Integrated Search:end, Candidate ID:end] | |
+Precedence[Integrated Search:end, Candidate ID:end] | |
+Alternate Precedence[Integrated Search:end, Candidate ID:end] | |
+Not Response[Candidate ID:end, Integrated Search:end] | |
+Not Precedence[Candidate ID:end, Integrated Search:end] | |
+Not Chain Response[Candidate ID:end, Integrated Search:end] | |
+Not Chain Response[Integrated Search:end, Candidate ID:end] | |
+Not Chain Precedence[Candidate ID:end, Integrated Search:end] | |
+Not Chain Precedence[Integrated Search:end, Candidate ID:end] | |
+Choice[Candidate Search:end, Candidate Search:start] | |
+Choice[Candidate Search:start, Candidate Search:end] | |
+Responded Existence[Candidate Search:end, Candidate Search:start] | |
+Responded Existence[Candidate Search:start, Candidate Search:end] | |
+Response[Candidate Search:start, Candidate Search:end] | |
+Alternate Response[Candidate Search:start, Candidate Search:end] | |
+Precedence[Candidate Search:start, Candidate Search:end] | |
+Alternate Precedence[Candidate Search:start, Candidate Search:end] | |
+Not Response[Candidate Search:end, Candidate Search:start] | |
+Not Precedence[Candidate Search:end, Candidate Search:start] | |
+Not Chain Response[Candidate Search:end, Candidate Search:start] | |
+Not Chain Response[Candidate Search:start, Candidate Search:end] | |
+Not Chain Precedence[Candidate Search:end, Candidate Search:start] | |
+Not Chain Precedence[Candidate Search:start, Candidate Search:end] | |
+Choice[Candidate Search:start, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:start, Candidate Search:start] | |
+Responded Existence[Candidate Search:start, Candidate ID Decision:start] | |
+Responded Existence[Candidate ID Decision:start, Candidate Search:start] | |
+Response[Candidate Search:start, Candidate ID Decision:start] | |
+Alternate Response[Candidate Search:start, Candidate ID Decision:start] | |
+Precedence[Candidate Search:start, Candidate ID Decision:start] | |
+Alternate Precedence[Candidate Search:start, Candidate ID Decision:start] | |
+Not Response[Candidate ID Decision:start, Candidate Search:start] | |
+Not Precedence[Candidate ID Decision:start, Candidate Search:start] | |
+Not Chain Response[Candidate Search:start, Candidate ID Decision:start] | |
+Not Chain Response[Candidate ID Decision:start, Candidate Search:start] | |
+Not Chain Precedence[Candidate Search:start, Candidate ID Decision:start] | |
+Not Chain Precedence[Candidate ID Decision:start, Candidate Search:start] | |
+Choice[Candidate ID Decision:end, Candidate Search:start] | |
+Choice[Candidate Search:start, Candidate ID Decision:end] | |
+Responded Existence[Candidate ID Decision:end, Candidate Search:start] | |
+Responded Existence[Candidate Search:start, Candidate ID Decision:end] | |
+Response[Candidate Search:start, Candidate ID Decision:end] | |
+Alternate Response[Candidate Search:start, Candidate ID Decision:end] | |
+Precedence[Candidate Search:start, Candidate ID Decision:end] | |
+Alternate Precedence[Candidate Search:start, Candidate ID Decision:end] | |
+Not Response[Candidate ID Decision:end, Candidate Search:start] | |
+Not Precedence[Candidate ID Decision:end, Candidate Search:start] | |
+Not Chain Response[Candidate ID Decision:end, Candidate Search:start] | |
+Not Chain Response[Candidate Search:start, Candidate ID Decision:end] | |
+Not Chain Precedence[Candidate ID Decision:end, Candidate Search:start] | |
+Not Chain Precedence[Candidate Search:start, Candidate ID Decision:end] | |
+Choice[Candidate Search:start, Candidate ID:start] | |
+Choice[Candidate ID:start, Candidate Search:start] | |
+Responded Existence[Candidate Search:start, Candidate ID:start] | |
+Responded Existence[Candidate ID:start, Candidate Search:start] | |
+Response[Candidate Search:start, Candidate ID:start] | |
+Alternate Response[Candidate Search:start, Candidate ID:start] | |
+Precedence[Candidate Search:start, Candidate ID:start] | |
+Alternate Precedence[Candidate Search:start, Candidate ID:start] | |
+Not Response[Candidate ID:start, Candidate Search:start] | |
+Not Precedence[Candidate ID:start, Candidate Search:start] | |
+Not Chain Response[Candidate Search:start, Candidate ID:start] | |
+Not Chain Response[Candidate ID:start, Candidate Search:start] | |
+Not Chain Precedence[Candidate Search:start, Candidate ID:start] | |
+Not Chain Precedence[Candidate ID:start, Candidate Search:start] | |
+Choice[Candidate Search:start, Candidate ID:end] | |
+Choice[Candidate ID:end, Candidate Search:start] | |
+Responded Existence[Candidate Search:start, Candidate ID:end] | |
+Responded Existence[Candidate ID:end, Candidate Search:start] | |
+Response[Candidate Search:start, Candidate ID:end] | |
+Alternate Response[Candidate Search:start, Candidate ID:end] | |
+Precedence[Candidate Search:start, Candidate ID:end] | |
+Alternate Precedence[Candidate Search:start, Candidate ID:end] | |
+Not Response[Candidate ID:end, Candidate Search:start] | |
+Not Precedence[Candidate ID:end, Candidate Search:start] | |
+Not Chain Response[Candidate Search:start, Candidate ID:end] | |
+Not Chain Response[Candidate ID:end, Candidate Search:start] | |
+Not Chain Precedence[Candidate Search:start, Candidate ID:end] | |
+Not Chain Precedence[Candidate ID:end, Candidate Search:start] | |
+Choice[Candidate Search:end, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:start, Candidate Search:end] | |
+Responded Existence[Candidate Search:end, Candidate ID Decision:start] | |
+Responded Existence[Candidate ID Decision:start, Candidate Search:end] | |
+Not Chain Response[Candidate Search:end, Candidate ID Decision:start] | |
+Not Chain Precedence[Candidate Search:end, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:end, Candidate Search:end] | |
+Choice[Candidate Search:end, Candidate ID Decision:end] | |
+Responded Existence[Candidate ID Decision:end, Candidate Search:end] | |
+Responded Existence[Candidate Search:end, Candidate ID Decision:end] | |
+Response[Candidate Search:end, Candidate ID Decision:end] | |
+Alternate Response[Candidate Search:end, Candidate ID Decision:end] | |
+Precedence[Candidate Search:end, Candidate ID Decision:end] | |
+Alternate Precedence[Candidate Search:end, Candidate ID Decision:end] | |
+Not Response[Candidate ID Decision:end, Candidate Search:end] | |
+Not Precedence[Candidate ID Decision:end, Candidate Search:end] | |
+Not Chain Response[Candidate ID Decision:end, Candidate Search:end] | |
+Not Chain Response[Candidate Search:end, Candidate ID Decision:end] | |
+Not Chain Precedence[Candidate ID Decision:end, Candidate Search:end] | |
+Not Chain Precedence[Candidate Search:end, Candidate ID Decision:end] | |
+Choice[Candidate Search:end, Candidate ID:start] | |
+Choice[Candidate ID:start, Candidate Search:end] | |
+Responded Existence[Candidate Search:end, Candidate ID:start] | |
+Responded Existence[Candidate ID:start, Candidate Search:end] | |
+Not Chain Response[Candidate ID:start, Candidate Search:end] | |
+Not Chain Precedence[Candidate ID:start, Candidate Search:end] | |
+Choice[Candidate Search:end, Candidate ID:end] | |
+Choice[Candidate ID:end, Candidate Search:end] | |
+Responded Existence[Candidate Search:end, Candidate ID:end] | |
+Responded Existence[Candidate ID:end, Candidate Search:end] | |
+Response[Candidate Search:end, Candidate ID:end] | |
+Alternate Response[Candidate Search:end, Candidate ID:end] | |
+Precedence[Candidate Search:end, Candidate ID:end] | |
+Alternate Precedence[Candidate Search:end, Candidate ID:end] | |
+Not Response[Candidate ID:end, Candidate Search:end] | |
+Not Precedence[Candidate ID:end, Candidate Search:end] | |
+Not Chain Response[Candidate ID:end, Candidate Search:end] | |
+Not Chain Precedence[Candidate ID:end, Candidate Search:end] | |
+Choice[Candidate ID Decision:end, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Responded Existence[Candidate ID Decision:end, Candidate ID Decision:start] | |
+Responded Existence[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Response[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Alternate Response[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Precedence[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Alternate Precedence[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Not Response[Candidate ID Decision:end, Candidate ID Decision:start] | |
+Not Precedence[Candidate ID Decision:end, Candidate ID Decision:start] | |
+Not Chain Response[Candidate ID Decision:end, Candidate ID Decision:start] | |
+Not Chain Response[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Not Chain Precedence[Candidate ID Decision:end, Candidate ID Decision:start] | |
+Not Chain Precedence[Candidate ID Decision:start, Candidate ID Decision:end] | |
+Choice[Candidate ID:start, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:start, Candidate ID:start] | |
+Responded Existence[Candidate ID:start, Candidate ID Decision:start] | |
+Responded Existence[Candidate ID Decision:start, Candidate ID:start] | |
+Response[Candidate ID:start, Candidate ID Decision:start] | |
+Alternate Response[Candidate ID:start, Candidate ID Decision:start] | |
+Chain Response[Candidate ID:start, Candidate ID Decision:start] | |
+Precedence[Candidate ID:start, Candidate ID Decision:start] | |
+Alternate Precedence[Candidate ID:start, Candidate ID Decision:start] | |
+Chain Precedence[Candidate ID:start, Candidate ID Decision:start] | |
+Not Response[Candidate ID Decision:start, Candidate ID:start] | |
+Not Precedence[Candidate ID Decision:start, Candidate ID:start] | |
+Not Chain Response[Candidate ID Decision:start, Candidate ID:start] | |
+Not Chain Precedence[Candidate ID Decision:start, Candidate ID:start] | |
+Choice[Candidate ID:end, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:start, Candidate ID:end] | |
+Responded Existence[Candidate ID:end, Candidate ID Decision:start] | |
+Responded Existence[Candidate ID Decision:start, Candidate ID:end] | |
+Response[Candidate ID Decision:start, Candidate ID:end] | |
+Alternate Response[Candidate ID Decision:start, Candidate ID:end] | |
+Precedence[Candidate ID Decision:start, Candidate ID:end] | |
+Alternate Precedence[Candidate ID Decision:start, Candidate ID:end] | |
+Not Response[Candidate ID:end, Candidate ID Decision:start] | |
+Not Precedence[Candidate ID:end, Candidate ID Decision:start] | |
+Not Chain Response[Candidate ID:end, Candidate ID Decision:start] | |
+Not Chain Precedence[Candidate ID:end, Candidate ID Decision:start] | |
+Choice[Candidate ID Decision:end, Candidate ID:start] | |
+Choice[Candidate ID:start, Candidate ID Decision:end] | |
+Responded Existence[Candidate ID Decision:end, Candidate ID:start] | |
+Responded Existence[Candidate ID:start, Candidate ID Decision:end] | |
+Response[Candidate ID:start, Candidate ID Decision:end] | |
+Alternate Response[Candidate ID:start, Candidate ID Decision:end] | |
+Precedence[Candidate ID:start, Candidate ID Decision:end] | |
+Alternate Precedence[Candidate ID:start, Candidate ID Decision:end] | |
+Not Response[Candidate ID Decision:end, Candidate ID:start] | |
+Not Precedence[Candidate ID Decision:end, Candidate ID:start] | |
+Not Chain Response[Candidate ID Decision:end, Candidate ID:start] | |
+Not Chain Response[Candidate ID:start, Candidate ID Decision:end] | |
+Not Chain Precedence[Candidate ID Decision:end, Candidate ID:start] | |
+Not Chain Precedence[Candidate ID:start, Candidate ID Decision:end] | |
+Choice[Candidate ID Decision:end, Candidate ID:end] | |
+Choice[Candidate ID:end, Candidate ID Decision:end] | |
+Responded Existence[Candidate ID Decision:end, Candidate ID:end] | |
+Responded Existence[Candidate ID:end, Candidate ID Decision:end] | |
+Response[Candidate ID:end, Candidate ID Decision:end] | |
+Alternate Response[Candidate ID:end, Candidate ID Decision:end] | |
+Chain Response[Candidate ID:end, Candidate ID Decision:end] | |
+Precedence[Candidate ID:end, Candidate ID Decision:end] | |
+Alternate Precedence[Candidate ID:end, Candidate ID Decision:end] | |
+Chain Precedence[Candidate ID:end, Candidate ID Decision:end] | |
+Not Response[Candidate ID Decision:end, Candidate ID:end] | |
+Not Precedence[Candidate ID Decision:end, Candidate ID:end] | |
+Not Chain Response[Candidate ID Decision:end, Candidate ID:end] | |
+Not Chain Precedence[Candidate ID Decision:end, Candidate ID:end] | |
+Choice[Candidate ID:end, Candidate ID:start] | |
+Choice[Candidate ID:start, Candidate ID:end] | |
+Responded Existence[Candidate ID:end, Candidate ID:start] | |
+Responded Existence[Candidate ID:start, Candidate ID:end] | |
+Response[Candidate ID:start, Candidate ID:end] | |
+Alternate Response[Candidate ID:start, Candidate ID:end] | |
+Precedence[Candidate ID:start, Candidate ID:end] | |
+Alternate Precedence[Candidate ID:start, Candidate ID:end] | |
+Not Response[Candidate ID:end, Candidate ID:start] | |
+Not Precedence[Candidate ID:end, Candidate ID:start] | |
+Not Chain Response[Candidate ID:end, Candidate ID:start] | |
+Not Chain Response[Candidate ID:start, Candidate ID:end] | |
+Not Chain Precedence[Candidate ID:end, Candidate ID:start] | |
+Not Chain Precedence[Candidate ID:start, Candidate ID:end] | |
