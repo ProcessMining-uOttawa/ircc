@@ -1,0 +1,15 @@
+digraph {
+	graph [bgcolor=white rankdir=LR]
+	node [shape=Mrecord]
+	edge [arrowsize=0.5 labeldistance=0.0]
+	Closed [label="{  |   } | { Closed }" font_size=12 style=solid]
+	Prospective [label="{  |   } | { Prospective }" font_size=12 style=solid]
+	Open [label="{  |   } | { Open }" font_size=12 style=solid]
+	Open -> Closed [arrowhead=dotnormal color="#FFA500"]
+	Prospective -> Open [arrowhead=dotnormal color="#FFA500"]
+	Prospective -> Open [arrowhead=normal arrowtail=dot color="#2993FC" dir=both]
+	Open -> Closed [arrowhead=normal arrowtail=dot color="#2993FC" dir=both]
+	Closed -> Open [arrowhead=normal arrowtail=none color="#FC0C1B" headlabel="%" labelfontcolor="#FC0C1B" labelfontsize=8]
+	Prospective -> Prospective [arrowhead=normal arrowtail=none color="#FC0C1B" headlabel="%" labelfontcolor="#FC0C1B" labelfontsize=8]
+	overlap=false
+}

@@ -1,0 +1,16 @@
+{
+  "all": [
+    "Candidate_Integrated Search",
+    "Biometric_Biographic",
+    "Fees",
+    "Medical (Assessment)",
+    "Criminality (Assessment)"
+  ],
+  "prefs": {
+    "Candidate_Integrated Search": "dcr",
+    "Biometric_Biographic": "dcr",
+    "Fees": "dcr",
+    "Medical (Assessment)": "dcr",
+    "Criminality (Assessment)": "dcr"
+  }
+}

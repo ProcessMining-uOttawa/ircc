@@ -1,0 +1,36 @@
+{
+  "all": [
+    "Candidate ID Decision",
+    "Candidate Search",
+    "Candidate ID",
+    "Auto Promote Decision",
+    "Eligibility Assessment",
+    "Criminality",
+    "Auto Promote",
+    "Criminality Assessment",
+    "Biographic",
+    "Verification",
+    "Integrated Search",
+    "Biometric - FCC Detail - USA",
+    "Biometric - FCC - USA",
+    "Biometrics - RCMP",
+    "Application Status"
+  ],
+  "prefs": {
+    "Candidate ID Decision": "dcr",
+    "Candidate Search": "dcr",
+    "Candidate ID": "dcr",
+    "Auto Promote Decision": "dcr",
+    "Eligibility Assessment": "dcr",
+    "Criminality": "dcr",
+    "Auto Promote": "dcr",
+    "Criminality Assessment": "dcr",
+    "Biographic": "dcr",
+    "Verification": "dcr",
+    "Integrated Search": "dcr",
+    "Biometric - FCC Detail - USA": "dcr",
+    "Biometric - FCC - USA": "dcr",
+    "Biometrics - RCMP": "dcr",
+    "Application Status": "dcr"
+  }
+}

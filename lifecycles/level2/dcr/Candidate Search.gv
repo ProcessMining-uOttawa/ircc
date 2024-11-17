@@ -1,0 +1,10 @@
+digraph {
+	graph [bgcolor=white rankdir=LR]
+	node [shape=Mrecord]
+	edge [arrowsize=0.5 labeldistance=0.0]
+	Complete [label="{  |   } | { Complete }" font_size=12 style=solid]
+	Submit [label="{  |   } | { Submit }" font_size=12 style=solid]
+	"In Progress" [label="{  |   } | { In Progress }" font_size=12 style=solid]
+	"In Progress" -> Complete [arrowhead=dotnormal color="#FFA500"]
+	overlap=false
+}

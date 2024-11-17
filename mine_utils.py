@@ -8,44 +8,52 @@ from pm4py.visualization.petri_net import visualizer as pn_visualizer
 from pm4py.visualization.heuristics_net import visualizer as hn_visualizer
 from pm4py.visualization.process_tree import visualizer as pt_visualizer
 from pm4py.objects.conversion.process_tree import converter as process_tree_converter
+from pm4py.visualization.heuristics_net.variants.pydotplus_vis import get_graph as hn_get_graph
 import pandas as pd
 
-def mine_vis(visualizer, gviz, output_path):
+def mine_vis(visualizer, gviz, output_path, save_gviz=False):
     if output_path is not None:
         visualizer.save(gviz, f"{output_path}.jpg")
+        if save_gviz:
+            gviz.save(f"{output_path}.gv")
     else:
         visualizer.view(gviz)
 
-def mine_dfg(log, output_path=None):
+def mine_dfg(log, output_path=None, save_gviz=False):
     # discover
     dfg = dfg_discovery.apply(log, variant=dfg_discovery.Variants.FREQUENCY)
 
     # visualize
     gviz = dfg_visualizer.apply(dfg, log=log, variant=dfg_visualizer.Variants.FREQUENCY)
-    mine_vis(dfg_visualizer, gviz, output_path)
+    mine_vis(dfg_visualizer, gviz, output_path, save_gviz)
         
     
 # (todo - get annotations such as frequency/performance here as well)
 
-def mine_alpha(log, output_path=None):
+def mine_alpha(log, output_path=None, save_gviz=False):
     # alpha miner
     net, initial_marking, final_marking = alpha_miner.apply(log)
 
     # visualise
     gviz = pn_visualizer.apply(net, initial_marking, final_marking)
-    mine_vis(pn_visualizer, gviz, output_path)
+    mine_vis(pn_visualizer, gviz, output_path, save_gviz)
     
     
-def mine_heur(log, output_path=None):
+def mine_heur(log, output_path=None, save_gviz=False):
     # heuristics miner
     heu_net = heuristics_miner.apply_heu(log)
 
     # visualize
+    # (works differently ...)
+    if save_gviz and output_path is not None:
+        gviz = hn_get_graph(heu_net)
+        gviz.write(f"{output_path}.gv")
+    
     gviz = hn_visualizer.apply(heu_net)
-    mine_vis(hn_visualizer, gviz, output_path)
+    mine_vis(hn_visualizer, gviz, output_path, False)
     
     
-def mine_induct(log, to_petri_net=True, output_path=None):
+def mine_induct(log, to_petri_net=True, output_path=None, save_gviz=False):
     # create the process tree
     # (wvw: drop "_tree" from call)
     tree = inductive_miner.apply(log)
@@ -53,20 +61,20 @@ def mine_induct(log, to_petri_net=True, output_path=None):
     if to_petri_net:
         net, initial_marking, final_marking = process_tree_converter.apply(tree)
         gviz = pn_visualizer.apply(net, initial_marking, final_marking)
-        mine_vis(pn_visualizer, gviz, output_path)
+        mine_vis(pn_visualizer, gviz, output_path, save_gviz)
     else:
         # visualize
         gviz = pt_visualizer.apply(tree)
-        mine_vis(pt_visualizer, gviz, output_path)
+        mine_vis(pt_visualizer, gviz, output_path, save_gviz)
         
         
-def mine_ilp(log, output_path=None):
+def mine_ilp(log, output_path=None, save_gviz=False):
     # heuristics miner
     net, init_mark, final_mark = ilp_miner.apply(log)
 
     # visualize
     gviz = pn_visualizer.apply(net, init_mark, final_mark)
-    mine_vis(pn_visualizer, gviz, output_path)
+    mine_vis(pn_visualizer, gviz, output_path, save_gviz)
     
     
 def log_subset_horizontal(log, perc):
@@ -164,7 +172,7 @@ def aggregate_events(log, events, max_timedelta, repl=None, verbose=False):
         if verbose and cur_group.size() != len(events):
             print(f"case {cur_case.id}: non-complete group {cur_group}")
         
-        # - update log & to_drop list
+        # - replace last event in group with 'repl' event
         # log.loc[cur_group.idxes[-1], 'concept:name'] = repl
         # to_drop.extend(cur_group.idxes[:-1])
         
@@ -175,11 +183,12 @@ def aggregate_events(log, events, max_timedelta, repl=None, verbose=False):
         # if (len(simult) == cur_group.size()-1):
             # total_simult += 1
         
-        # - get timestamp differences between first, last index
+        # - drop groups with "simultaneous" events (as per max_timedelta)
+        # get timestamp differences between first, last index
         ts1 = log.loc[cur_group.idxes[0], 'time:timestamp']
         ts2 = log.loc[cur_group.idxes[-1], 'time:timestamp']
-        name1 = log.loc[cur_group.idxes[0], 'concept:name']
-        name2 = log.loc[cur_group.idxes[-1], 'concept:name']
+        # name1 = log.loc[cur_group.idxes[0], 'concept:name']
+        # name2 = log.loc[cur_group.idxes[-1], 'concept:name']
         diff = (ts2 - ts1).total_seconds()
         # print(total_diff)
         if diff <= max_timedelta:

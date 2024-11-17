@@ -1,0 +1,253 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+        <!-- copied from http://webgraphviz.com/ -->
+        <!-- possible source: https://github.com/mdaines/viz-js -->
+        <script src="js/viz.js"></script>
+        <style>
+            g.subprocess > text:last-child { cursor: pointer }
+            .subprocess polyline, .subprocess path { 
+                stroke-width: 2px;
+            }
+            .subprocess text { 
+                /* outline: solid 3px blue; 
+                outline-offset: -2px; */
+                font: bold 13px Times;
+            }
+            #trail {
+                font-size: 42px;
+                padding: 25px;
+            }
+
+            a.stack_entry { cursor: pointer; color: blue; text-decoration: underline }
+            .sub { font-size: 32px }
+            #formats { font-size: 20px; margin-left: 25px }
+            .format { cursor: pointer; color: blue; text-decoration: underline; }
+
+        </style>
+    </head>
+    <body>
+        <div id="trail"></div>
+        <div id="formats"></div>
+        <div id="svg"></div>
+
+        <script type="module">
+
+            class Navigation {
+
+                constructor() {
+                    this.stack = new Stack()
+                }
+
+                async init() {
+                    this.graphs = await new Graphs().load()
+
+                    let self = this
+                    window.goto = function(lvl) { self.prior_graph.call(self, lvl) }
+
+                    return this
+                }
+
+                new_graph(name, lvl, format) {
+                    let graph = new Graph(this, name, lvl, format)
+                    graph.load(this)
+
+                    this.stack.push(graph)
+                    this.setup_trail()
+
+                    this.setup_formats()
+                }
+
+                prior_graph(lvl) {
+                    let prior = this.stack.pop(lvl)
+                    prior.show(this)
+
+                    this.setup_trail()
+                    this.setup_formats()
+                }
+
+                switch_format(format) {
+                    let cur = this.stack.last()
+                    cur.switch(format)
+
+                    cur.load(this)
+
+                    this.setup_formats()
+                }
+
+                setup_formats() {
+                    let cur = this.stack.last()
+
+                    let formats = [ "alpha", "dcr", "heur", "induct" ]
+                    $("#formats").html(formats.map(f =>
+                        (cur.format != f ? `<a class="format">${f}</a>` : f) 
+                    ).join(" | "))
+                    
+                    let self = this
+                    $(".format").each(function() {
+                        let link = $(this)
+                        link.click(function() {
+                            let format = link.text()
+
+                            self.switch_format(format)
+                        })
+                    })
+                }
+
+                setup_trail() {
+                    $("#trail").html(this.stack.entries())
+                }
+            }
+
+            class Graphs {
+
+                constructor() {}
+
+                async load() {
+                    this.graphs = { 0 : await this.__load_list(0), 1 : await this.__load_list(1), 2 : await this.__load_list(2) }
+                    return this
+                }
+
+                async __load_list(lvl) {
+                    return JSON.parse(await (await fetch(`lifecycles/level${lvl}/graphs.json`)).text())
+                }
+
+                __safe_name(name) {
+                    return name.replace("/", "_")
+                }
+
+                get_lvl(name) {
+                    name = this.__safe_name(name)
+
+                    for (let lvl in this.graphs) {
+                        if (this.graphs[lvl]['all'].includes(name))
+                            return lvl
+                    }
+
+                    console.error("not found:", name)
+                    return -1
+                }
+                
+                get_path(graph) {
+                    name = this.__safe_name(graph.name)
+                    return `lifecycles/level${graph.lvl}/${graph.format}/${name}.gv`
+                }
+
+                get_pref_format(graph) {
+                    name = this.__safe_name(graph.name)
+                    return this.graphs[graph.lvl]['prefs'][name]
+                }
+
+                set_pref_format(graph, format) {
+                    name = this.__safe_name(graph.name)
+                    this.graphs[graph.lvl]['prefs'][name] = format
+                }
+            }
+
+            class Graph {
+
+                constructor(nav, name, lvl, format) {
+                    this.nav = nav
+                    this.name = name
+                    this.lvl = nav.graphs.get_lvl(name)
+                    this.format = nav.graphs.get_pref_format(this)
+                }
+
+                switch(new_format) {
+                    if (new_format != this.format) {
+                        this.format = new_format
+                        this.nav.graphs.set_pref_format(this, new_format)
+                    }
+                }
+
+                async load() {
+                    let path = this.nav.graphs.get_path(this)
+                    try {
+                        // console.log(path)
+                        if (path == null) {
+                            console.error("not found:", path)
+                            return
+                        }
+
+                        let svg = await (await fetch(path)).text()
+                        this.viz = Viz(svg, "svg")
+                        
+                        this.show()
+
+                    } catch (error) {
+                        console.error("not found:", path)
+                    }
+                }
+
+                show() {
+                    $("#svg").html(this.viz)
+
+                    let self = this
+                    $("#svg .node").each(function() {
+                        let node = $(this)
+                        let title = node.find("title").text()
+                        
+                        if (title.endsWith("[start]") || title.endsWith("[end]")) {
+                            node[0].classList.add("subprocess")
+                            node.click(function() {
+                                name = title.substring(0, title.indexOf(" ["))
+
+                                self.nav.new_graph(name)
+                            })
+                        }
+                    })
+                }
+            }
+
+            class Stack {
+
+                constructor() {
+                    this.stack = []
+                }
+
+                push(entry) {
+                    this.stack.push(entry)
+                }
+
+                pop(until) {
+                     // (until+1 is target length)
+                    while (this.length() > (until + 1))
+                        this.stack.splice(this.length() - 1)
+
+                    return this.last()
+                }
+
+                last() {
+                    return this.stack[this.length() - 1]
+                }
+
+                length() {
+                    return this.stack.length
+                }
+
+                entries() {
+                    let els = []
+                    for (let i = 0; i < this.length(); i++) {
+                        let el = null
+                        let cls = `stack_entry ${i > 0 ? "sub" : "" }`
+                        if (i < this.length() - 1)
+                            el = `<a class="${cls}" onclick="goto(${i})">${this.stack[i].name}</a>`
+                        else
+                            el = `<span class="${cls}">${this.stack[i].name}</span>`
+                        els.push(el)
+                    }
+                    return els.join(" < ")
+                }
+            }
+
+            let nav = await new Navigation().init()
+            nav.new_graph("main")
+
+            // document.querySelectorAll("#svg .node").forEach(function(node) {
+            //     // console.log(node)
+            //     node.addEventListener("click", () => { console.log(node) })
+            // })
+
+        </script>
+    </body>
+</html>

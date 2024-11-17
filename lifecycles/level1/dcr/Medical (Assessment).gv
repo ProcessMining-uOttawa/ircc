@@ -1,0 +1,20 @@
+digraph {
+	graph [bgcolor=white rankdir=LR]
+	node [shape=Mrecord]
+	edge [arrowsize=0.5 labeldistance=0.0]
+	"Medical Assessment - Not Started" [label="{  |   } | { Medical Assessment - Not Started }" font_size=12 style=solid]
+	"Medical Assessment - Passed" [label="{  |   } | { Medical Assessment - Passed }" font_size=12 style=solid]
+	"Medical - Not Started" [label="{  |   } | { Medical - Not Started }" font_size=12 style=solid]
+	"Medical - Passed" [label="{  |   } | { Medical - Passed }" font_size=12 style=solid]
+	"Medical - Not Started" -> "Medical Assessment - Passed" [arrowhead=dotnormal color="#FFA500"]
+	"Medical - Passed" -> "Medical Assessment - Passed" [arrowhead=dotnormal color="#FFA500"]
+	"Medical - Not Started" -> "Medical Assessment - Not Started" [arrowhead=dotnormal color="#FFA500"]
+	"Medical - Not Started" -> "Medical Assessment - Not Started" [arrowhead=normal arrowtail=dot color="#2993FC" dir=both]
+	"Medical - Passed" -> "Medical Assessment - Passed" [arrowhead=normal arrowtail=dot color="#2993FC" dir=both]
+	"Medical - Not Started" -> "Medical Assessment - Not Started" [arrowhead=normal arrowtail=none color="#30A627" headlabel="+" labelfontcolor="#30A627" labelfontsize=10]
+	"Medical Assessment - Not Started" -> "Medical Assessment - Not Started" [arrowhead=normal arrowtail=none color="#FC0C1B" headlabel="%" labelfontcolor="#FC0C1B" labelfontsize=8]
+	"Medical Assessment - Passed" -> "Medical Assessment - Passed" [arrowhead=normal arrowtail=none color="#FC0C1B" headlabel="%" labelfontcolor="#FC0C1B" labelfontsize=8]
+	"Medical - Passed" -> "Medical - Not Started" [arrowhead=normal arrowtail=none color="#FC0C1B" headlabel="%" labelfontcolor="#FC0C1B" labelfontsize=8]
+	"Medical - Passed" -> "Medical - Passed" [arrowhead=normal arrowtail=none color="#FC0C1B" headlabel="%" labelfontcolor="#FC0C1B" labelfontsize=8]
+	overlap=false
+}

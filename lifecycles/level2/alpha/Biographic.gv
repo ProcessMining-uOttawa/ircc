@@ -1,0 +1,19 @@
+digraph "alpha_classic_net_1731853349.46924" {
+	graph [bgcolor=white rankdir=LR]
+	node [shape=box]
+	14124733136 [label=Submit border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13666282512 [label="Sent - Partner" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13666274640 [label="Submit - Delayed" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13666275216 [label=NRT border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13666285776 [label="start" fillcolor=white fixedsize=true fontsize=18 shape=circle style=filled width=0.75]
+	13573610128 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	13573607952 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	13666285584 [label="end" fillcolor=white fixedsize=true fontsize=18 shape=doublecircle style=filled width=0.75]
+	13573610128 -> 13666275216 [label="" arrowhead=normal fontsize=12]
+	13573610128 -> 13666274640 [label="" arrowhead=normal fontsize=12]
+	13573607952 -> 14124733136 [label="" arrowhead=normal fontsize=12]
+	13666275216 -> 13666285584 [label="" arrowhead=normal fontsize=12]
+	13666282512 -> 13573610128 [label="" arrowhead=normal fontsize=12]
+	13666274640 -> 13573607952 [label="" arrowhead=normal fontsize=12]
+	overlap=false
+}

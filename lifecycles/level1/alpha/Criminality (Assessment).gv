@@ -1,0 +1,22 @@
+digraph "alpha_classic_net_1731853455.966966" {
+	graph [bgcolor=white rankdir=LR]
+	node [shape=box]
+	14121662992 [label="Criminality Assessment [end]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	14121660176 [label="Criminality [start]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	14121660304 [label="Criminality Assessment [start]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	14121649360 [label="Criminality [end]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	14121650960 [label="start" fillcolor=white fixedsize=true fontsize=18 shape=circle style=filled width=0.75]
+	14109050704 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	14109060944 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	14117075856 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	14109051344 [label="end" fillcolor=white fixedsize=true fontsize=18 shape=doublecircle style=filled width=0.75]
+	14109050704 -> 14121649360 [label="" arrowhead=normal fontsize=12]
+	14109060944 -> 14121662992 [label="" arrowhead=normal fontsize=12]
+	14117075856 -> 14121660304 [label="" arrowhead=normal fontsize=12]
+	14121662992 -> 14109051344 [label="" arrowhead=normal fontsize=12]
+	14121660304 -> 14109050704 [label="" arrowhead=normal fontsize=12]
+	14121649360 -> 14109060944 [label="" arrowhead=normal fontsize=12]
+	14121660176 -> 14117075856 [label="" arrowhead=normal fontsize=12]
+	14121650960 -> 14121660176 [label="" arrowhead=normal fontsize=12]
+	overlap=false
+}

@@ -1,0 +1,22 @@
+digraph "imdf_net_1731853456.070644" {
+	graph [bgcolor=white rankdir=LR]
+	node [shape=box]
+	13573615568 [label="Criminality [start]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13573609040 [label="Criminality [end]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13573607376 [label="Criminality Assessment [end]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13573612240 [label="Criminality Assessment [start]" border=1 fillcolor=white fontcolor=black fontsize=12 style=filled]
+	13573933264 [label="start" fillcolor=white fixedsize=true fontsize=18 shape=circle style=filled width=0.75]
+	13573615248 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	13573615312 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	13573610448 [label="" fillcolor=white fixedsize=true shape=circle style=filled width=0.75]
+	13573935376 [label="end" fillcolor=white fixedsize=true fontsize=18 shape=doublecircle style=filled width=0.75]
+	13573609040 -> 13573610448 [label="" arrowhead=normal fontsize=12]
+	13573607376 -> 13573935376 [label="" arrowhead=normal fontsize=12]
+	13573615568 -> 13573615248 [label="" arrowhead=normal fontsize=12]
+	13573612240 -> 13573615312 [label="" arrowhead=normal fontsize=12]
+	13573615248 -> 13573612240 [label="" arrowhead=normal fontsize=12]
+	13573615312 -> 13573609040 [label="" arrowhead=normal fontsize=12]
+	13573610448 -> 13573607376 [label="" arrowhead=normal fontsize=12]
+	13573933264 -> 13573615568 [label="" arrowhead=normal fontsize=12]
+	overlap=false
+}
