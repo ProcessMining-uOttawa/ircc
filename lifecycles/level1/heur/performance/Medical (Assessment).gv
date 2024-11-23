@@ -1,0 +1,16 @@
+strict digraph G {
+bgcolor=white;
+"4aaca2bb-83d0-4895-a456-e2f39c71d41d" [fillcolor="#44BABA", fontcolor="#000000", label="Medical - Passed (0s)", shape=box, style=filled];
+"c4923e6e-e3bb-4d4a-8ef2-81eed5400ab3" [fillcolor="#44BABA", fontcolor="#000000", label="Medical Assessment - Passed (0s)", shape=box, style=filled];
+"22129af3-241d-45ef-9c7d-023b39be1f26" [fillcolor="#41BDBD", fontcolor="#000000", label="Medical - Not Started (0s)", shape=box, style=filled];
+"36a02128-4054-4872-9da1-30f5876d39ec" [fillcolor="#41BDBD", fontcolor="#000000", label="Medical Assessment - Not Started (0s)", shape=box, style=filled];
+"4aaca2bb-83d0-4895-a456-e2f39c71d41d" -> "c4923e6e-e3bb-4d4a-8ef2-81eed5400ab3"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0181456186725193];
+"22129af3-241d-45ef-9c7d-023b39be1f26" -> "36a02128-4054-4872-9da1-30f5876d39ec"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0180808377815147];
+"36a02128-4054-4872-9da1-30f5876d39ec" -> "4aaca2bb-83d0-4895-a456-e2f39c71d41d"  [color="#000000", fontcolor="#000000", label="10h", penwidth=1.9615578826497746];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "4aaca2bb-83d0-4895-a456-e2f39c71d41d"  [color="#000000", fontcolor="#000000", label=""];
+start_0 -> "22129af3-241d-45ef-9c7d-023b39be1f26"  [color="#000000", fontcolor="#000000", label=""];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"c4923e6e-e3bb-4d4a-8ef2-81eed5400ab3" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"36a02128-4054-4872-9da1-30f5876d39ec" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+}

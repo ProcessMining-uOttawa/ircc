@@ -1,0 +1,17 @@
+strict digraph G {
+bgcolor=white;
+"15e1d67f-aeb5-42d2-9174-739908bd227a" [fillcolor="#50AEAE", fontcolor="#000000", label="Submit (0s)", shape=box, style=filled];
+"f066d9d2-2850-4017-a0e4-1eb1246563e8" [fillcolor="#50AEAE", fontcolor="#000000", label="Complete (0s)", shape=box, style=filled];
+"98f1ecee-b040-4f93-8cfe-4610730273d6" [fillcolor="#50AEAE", fontcolor="#000000", label="In Progress (0s)", shape=box, style=filled];
+"15e1d67f-aeb5-42d2-9174-739908bd227a" -> "f066d9d2-2850-4017-a0e4-1eb1246563e8"  [color="#000000", fontcolor="#000000", label="50m", penwidth=1.7290539468048816];
+"15e1d67f-aeb5-42d2-9174-739908bd227a" -> "98f1ecee-b040-4f93-8cfe-4610730273d6"  [color="#000000", fontcolor="#000000", label="2h", penwidth=1.8278561460460558];
+"98f1ecee-b040-4f93-8cfe-4610730273d6" -> "f066d9d2-2850-4017-a0e4-1eb1246563e8"  [color="#000000", fontcolor="#000000", label="47m", penwidth=1.7237609000798357];
+"98f1ecee-b040-4f93-8cfe-4610730273d6" -> "15e1d67f-aeb5-42d2-9174-739908bd227a"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "15e1d67f-aeb5-42d2-9174-739908bd227a"  [color="#000000", fontcolor="#000000", label=""];
+start_0 -> "98f1ecee-b040-4f93-8cfe-4610730273d6"  [color="#000000", fontcolor="#000000", label=""];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"f066d9d2-2850-4017-a0e4-1eb1246563e8" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"98f1ecee-b040-4f93-8cfe-4610730273d6" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"15e1d67f-aeb5-42d2-9174-739908bd227a" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+}

@@ -1,0 +1,24 @@
+digraph {
+	graph [bgcolor=white]
+	node [shape=box]
+	310542972457639655 [label="Biometrics Fee - Outstanding (6144)" fillcolor="#A4A4FF" fontsize=12 style=filled]
+	7035554983434886607 [label="Biometrics Fee - Paid (6144)" fillcolor="#A4A4FF" fontsize=12 style=filled]
+	-779380041569294086 [label="Study Permit Fee - Outstanding (6594)" fillcolor="#9B9BFF" fontsize=12 style=filled]
+	6694856185619515045 [label="Study Permit Fee - Paid (6594)" fillcolor="#9B9BFF" fontsize=12 style=filled]
+	-5230252448539850907 [label="Work Permit Fee - Exempt (1664)" fillcolor="#FFFFFF" fontsize=12 style=filled]
+	-7308540215274663349 [label="Work Permit Fee - Outstanding (1664)" fillcolor="#FFFFFF" fontsize=12 style=filled]
+	310542972457639655 -> -779380041569294086 [label=3809 fontsize=12 penwidth=2.5999999952366775]
+	310542972457639655 -> 6694856185619515045 [label=2335 fontsize=12 penwidth=1.8978862730042088]
+	7035554983434886607 -> -779380041569294086 [label=874 fontsize=12 penwidth=1.201964869895907]
+	7035554983434886607 -> 6694856185619515045 [label=3809 fontsize=12 penwidth=2.5999999952366775]
+	-779380041569294086 -> 310542972457639655 [label=2335 fontsize=12 penwidth=1.8978862730042088]
+	-779380041569294086 -> 7035554983434886607 [label=2145 fontsize=12 penwidth=1.807383147343307]
+	-779380041569294086 -> 6694856185619515045 [label=450 fontsize=12 penwidth=1.0]
+	-779380041569294086 -> -7308540215274663349 [label=1664 fontsize=12 penwidth=1.5782673397491296]
+	6694856185619515045 -> 7035554983434886607 [label=2335 fontsize=12 penwidth=1.8978862730042088]
+	6694856185619515045 -> -5230252448539850907 [label=1664 fontsize=12 penwidth=1.5782673397491296]
+	-5230252448539850907 -> 310542972457639655 [label=832 fontsize=12 penwidth=1.1819589158024444]
+	-7308540215274663349 -> 7035554983434886607 [label=1664 fontsize=12 penwidth=1.5782673397491296]
+	overlap=false
+	fontsize=11
+}

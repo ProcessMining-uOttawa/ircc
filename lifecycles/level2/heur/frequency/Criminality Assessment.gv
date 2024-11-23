@@ -1,0 +1,14 @@
+strict digraph G {
+bgcolor=white;
+"f6bc0abf-cbbd-41f6-9d6b-38d15cd40ba0" [fillcolor="#50AEAE", fontcolor="#000000", label="Not Started (7252)", shape=box, style=filled];
+"b62a4780-3fa5-4837-aa91-39a15c5b6542" [fillcolor="#50AEAE", fontcolor="#000000", label="In Progress (7338)", shape=box, style=filled];
+"93a0203f-6420-46d1-a353-bc5e783181bf" [fillcolor="#4FAFAF", fontcolor="#000000", label="Passed - Bio (7165)", shape=box, style=filled];
+"f6bc0abf-cbbd-41f6-9d6b-38d15cd40ba0" -> "b62a4780-3fa5-4837-aa91-39a15c5b6542"  [color="#000000", fontcolor="#000000", label=7249, penwidth=1.8080687952589747];
+"b62a4780-3fa5-4837-aa91-39a15c5b6542" -> "93a0203f-6420-46d1-a353-bc5e783181bf"  [color="#000000", fontcolor="#000000", label=7165, penwidth=1.8070093543513543];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "f6bc0abf-cbbd-41f6-9d6b-38d15cd40ba0"  [color="#000000", fontcolor="#000000", label=7236, penwidth=1.8079056395332844];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"93a0203f-6420-46d1-a353-bc5e783181bf" -> end_0  [color="#000000", fontcolor="#000000", label=7070, penwidth=1.8057961083276584];
+"b62a4780-3fa5-4837-aa91-39a15c5b6542" -> end_0  [color="#000000", fontcolor="#000000", label=163, penwidth=1.4636242207112908];
+"f6bc0abf-cbbd-41f6-9d6b-38d15cd40ba0" -> end_0  [color="#000000", fontcolor="#000000", label=3, penwidth=1.1260267601018081];
+}

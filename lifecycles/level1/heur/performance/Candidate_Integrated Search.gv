@@ -1,0 +1,34 @@
+strict digraph G {
+bgcolor=white;
+"b728e399-baed-48dc-a21a-33e680b2ce59" [fillcolor="#4DB1B1", fontcolor="#000000", label="Candidate Search [start] (0s)", shape=box, style=filled];
+"b9efb231-c812-4510-8620-5b43e7860290" [fillcolor="#4DB1B1", fontcolor="#000000", label="Integrated Search [start] (0s)", shape=box, style=filled];
+"550f0bea-60d6-48fe-aa56-d07b80b597c1" [fillcolor="#4DB1B1", fontcolor="#000000", label="Integrated Search [end] (0s)", shape=box, style=filled];
+"07db440c-94e7-4f20-ac80-0a69a98f878f" [fillcolor="#4DB1B1", fontcolor="#000000", label="Candidate Search [end] (0s)", shape=box, style=filled];
+"1d690c7c-a868-4ebe-b673-ec61b810eef0" [fillcolor="#4DB1B1", fontcolor="#000000", label="Candidate ID Decision [start] (0s)", shape=box, style=filled];
+"b44d2b43-abd2-4da9-9a8b-15b26b387fe3" [fillcolor="#4DB1B1", fontcolor="#000000", label="Candidate ID [start] (0s)", shape=box, style=filled];
+"0845570b-5979-4ba8-a44b-4cc5bf2e4925" [fillcolor="#4DB1B1", fontcolor="#000000", label="Candidate ID [end] (0s)", shape=box, style=filled];
+"743daf1b-9cef-4ab2-8932-bc01fd644d9d" [fillcolor="#4DB1B1", fontcolor="#000000", label="Candidate ID Decision [end] (0s)", shape=box, style=filled];
+"b728e399-baed-48dc-a21a-33e680b2ce59" -> "b9efb231-c812-4510-8620-5b43e7860290"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0073240695081451];
+"b9efb231-c812-4510-8620-5b43e7860290" -> "550f0bea-60d6-48fe-aa56-d07b80b597c1"  [color="#000000", fontcolor="#000000", label="1h", penwidth=1.7799589220039376];
+"b9efb231-c812-4510-8620-5b43e7860290" -> "07db440c-94e7-4f20-ac80-0a69a98f878f"  [color="#000000", fontcolor="#000000", label="1h", penwidth=1.7534204934454838];
+"b9efb231-c812-4510-8620-5b43e7860290" -> "1d690c7c-a868-4ebe-b673-ec61b810eef0"  [color="#000000", fontcolor="#000000", label="20m", penwidth=1.6448664793535523];
+"b9efb231-c812-4510-8620-5b43e7860290" -> "b44d2b43-abd2-4da9-9a8b-15b26b387fe3"  [color="#000000", fontcolor="#000000", label="1h", penwidth=1.7517195197743085];
+"550f0bea-60d6-48fe-aa56-d07b80b597c1" -> "b44d2b43-abd2-4da9-9a8b-15b26b387fe3"  [color="#000000", fontcolor="#000000", label="8m", penwidth=1.5688303082542856];
+"550f0bea-60d6-48fe-aa56-d07b80b597c1" -> "0845570b-5979-4ba8-a44b-4cc5bf2e4925"  [color="#000000", fontcolor="#000000", label="2m", penwidth=1.4365000350854153];
+"07db440c-94e7-4f20-ac80-0a69a98f878f" -> "0845570b-5979-4ba8-a44b-4cc5bf2e4925"  [color="#000000", fontcolor="#000000", label="3m", penwidth=1.4903782503169096];
+"07db440c-94e7-4f20-ac80-0a69a98f878f" -> "550f0bea-60d6-48fe-aa56-d07b80b597c1"  [color="#000000", fontcolor="#000000", label="4s", penwidth=1.1572506737351267];
+"07db440c-94e7-4f20-ac80-0a69a98f878f" -> "b44d2b43-abd2-4da9-9a8b-15b26b387fe3"  [color="#000000", fontcolor="#000000", label="23m", penwidth=1.6578845623016516];
+"1d690c7c-a868-4ebe-b673-ec61b810eef0" -> "07db440c-94e7-4f20-ac80-0a69a98f878f"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0087268909631304];
+"1d690c7c-a868-4ebe-b673-ec61b810eef0" -> "0845570b-5979-4ba8-a44b-4cc5bf2e4925"  [color="#000000", fontcolor="#000000", label="8s", penwidth=1.2062481407221206];
+"b44d2b43-abd2-4da9-9a8b-15b26b387fe3" -> "1d690c7c-a868-4ebe-b673-ec61b810eef0"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0028443535906544];
+"b44d2b43-abd2-4da9-9a8b-15b26b387fe3" -> "0845570b-5979-4ba8-a44b-4cc5bf2e4925"  [color="#000000", fontcolor="#000000", label="4s", penwidth=1.1578245966697698];
+"0845570b-5979-4ba8-a44b-4cc5bf2e4925" -> "743daf1b-9cef-4ab2-8932-bc01fd644d9d"  [color="#000000", fontcolor="#000000", label="4h", penwidth=1.8889334418338373];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "b728e399-baed-48dc-a21a-33e680b2ce59"  [color="#000000", fontcolor="#000000", label=""];
+start_0 -> "1d690c7c-a868-4ebe-b673-ec61b810eef0"  [color="#000000", fontcolor="#000000", label=""];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"743daf1b-9cef-4ab2-8932-bc01fd644d9d" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"550f0bea-60d6-48fe-aa56-d07b80b597c1" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"07db440c-94e7-4f20-ac80-0a69a98f878f" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"0845570b-5979-4ba8-a44b-4cc5bf2e4925" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+}

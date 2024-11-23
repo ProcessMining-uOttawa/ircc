@@ -1,0 +1,19 @@
+strict digraph G {
+bgcolor=white;
+"fc47c799-dcd2-4a30-a841-d4d67e91afd0" [fillcolor="#50AEAE", fontcolor="#000000", label="Not Started (0s)", shape=box, style=filled];
+"8123acf5-27f2-48e7-84bf-ecafcf1cb711" [fillcolor="#4DB1B1", fontcolor="#000000", label="Generate (0s)", shape=box, style=filled];
+"6b3875f5-ec55-4420-9ebe-c5c2457ab7b2" [fillcolor="#4FAFAF", fontcolor="#000000", label="Received - NRT (0s)", shape=box, style=filled];
+"f93c46d8-0d34-4e3d-a7bf-d43be2d79e91" [fillcolor="#4DB1B1", fontcolor="#000000", label="Sent (0s)", shape=box, style=filled];
+"fc47c799-dcd2-4a30-a841-d4d67e91afd0" -> "8123acf5-27f2-48e7-84bf-ecafcf1cb711"  [color="#000000", fontcolor="#000000", label="1D", penwidth=2.0343839459266175];
+"fc47c799-dcd2-4a30-a841-d4d67e91afd0" -> "6b3875f5-ec55-4420-9ebe-c5c2457ab7b2"  [color="#000000", fontcolor="#000000", label="1D", penwidth=2.0530722713252514];
+"8123acf5-27f2-48e7-84bf-ecafcf1cb711" -> "f93c46d8-0d34-4e3d-a7bf-d43be2d79e91"  [color="#000000", fontcolor="#000000", label="11h", penwidth=1.96880539221761];
+"f93c46d8-0d34-4e3d-a7bf-d43be2d79e91" -> "6b3875f5-ec55-4420-9ebe-c5c2457ab7b2"  [color="#000000", fontcolor="#000000", label="16D", penwidth=2.29067047853322];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "fc47c799-dcd2-4a30-a841-d4d67e91afd0"  [color="#000000", fontcolor="#000000", label=""];
+start_0 -> "8123acf5-27f2-48e7-84bf-ecafcf1cb711"  [color="#000000", fontcolor="#000000", label=""];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"6b3875f5-ec55-4420-9ebe-c5c2457ab7b2" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"fc47c799-dcd2-4a30-a841-d4d67e91afd0" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"f93c46d8-0d34-4e3d-a7bf-d43be2d79e91" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"8123acf5-27f2-48e7-84bf-ecafcf1cb711" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+}

@@ -1,0 +1,23 @@
+strict digraph G {
+bgcolor=white;
+"920ff836-50fe-4456-958d-a9acd07c184e" [fillcolor="#4FAFAF", fontcolor="#000000", label="Not Started (0s)", shape=box, style=filled];
+"bc87948a-995b-46a0-8a97-cc38247738bf" [fillcolor="#4FAFAF", fontcolor="#000000", label="Submit (0s)", shape=box, style=filled];
+"96cf5c49-4bc6-446d-8b21-350ba75b46de" [fillcolor="#4FAFAF", fontcolor="#000000", label="Sent - Partner (0s)", shape=box, style=filled];
+"5fcc1992-d93f-41a7-81da-1aaf2dc39332" [fillcolor="#4EB0B0", fontcolor="#000000", label="NRT (0s)", shape=box, style=filled];
+"07989b82-d2a6-4589-a4f9-66e4718c8cec" [fillcolor="#3FBFBF", fontcolor="#000000", label="Ready to be Assessed (0s)", shape=box, style=filled];
+"4d5d7828-2748-49aa-a94e-0bce149283f2" [fillcolor="#3FBFBF", fontcolor="#000000", label="Complete - Not Reviewed (0s)", shape=box, style=filled];
+"920ff836-50fe-4456-958d-a9acd07c184e" -> "bc87948a-995b-46a0-8a97-cc38247738bf"  [color="#000000", fontcolor="#000000", label="13D", penwidth=2.2703748055613775];
+"bc87948a-995b-46a0-8a97-cc38247738bf" -> "96cf5c49-4bc6-446d-8b21-350ba75b46de"  [color="#000000", fontcolor="#000000", label="8s", penwidth=1.2027618679475434];
+"96cf5c49-4bc6-446d-8b21-350ba75b46de" -> "5fcc1992-d93f-41a7-81da-1aaf2dc39332"  [color="#000000", fontcolor="#000000", label="38m", penwidth=1.704047897328587];
+"96cf5c49-4bc6-446d-8b21-350ba75b46de" -> "07989b82-d2a6-4589-a4f9-66e4718c8cec"  [color="#000000", fontcolor="#000000", label="45m", penwidth=1.7187988849636988];
+"07989b82-d2a6-4589-a4f9-66e4718c8cec" -> "4d5d7828-2748-49aa-a94e-0bce149283f2"  [color="#000000", fontcolor="#000000", label="24m", penwidth=1.662283066122816];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "920ff836-50fe-4456-958d-a9acd07c184e"  [color="#000000", fontcolor="#000000", label=""];
+start_0 -> "bc87948a-995b-46a0-8a97-cc38247738bf"  [color="#000000", fontcolor="#000000", label=""];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"96cf5c49-4bc6-446d-8b21-350ba75b46de" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"5fcc1992-d93f-41a7-81da-1aaf2dc39332" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"4d5d7828-2748-49aa-a94e-0bce149283f2" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"07989b82-d2a6-4589-a4f9-66e4718c8cec" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"920ff836-50fe-4456-958d-a9acd07c184e" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+}

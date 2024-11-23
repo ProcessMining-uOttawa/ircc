@@ -1,0 +1,18 @@
+strict digraph G {
+bgcolor=white;
+"90dff550-f36b-41b2-87a2-4e1c927ee27f" [fillcolor="#4FAFAF", fontcolor="#000000", label="Not Started (6877)", shape=box, style=filled];
+"008837d3-cc37-4bb1-8abf-10f8e1355733" [fillcolor="#4FAFAF", fontcolor="#000000", label="Submit (6703)", shape=box, style=filled];
+"35cc0bf5-2c21-4bb8-b569-1c268a10719d" [fillcolor="#4FAFAF", fontcolor="#000000", label="In Progress (6687)", shape=box, style=filled];
+"a91d4a34-5818-4276-97fa-b1767049d640" [fillcolor="#4FAFAF", fontcolor="#000000", label="Completed (6673)", shape=box, style=filled];
+"90dff550-f36b-41b2-87a2-4e1c927ee27f" -> "008837d3-cc37-4bb1-8abf-10f8e1355733"  [color="#000000", fontcolor="#000000", label=6701, penwidth=1.8009237516633867];
+"008837d3-cc37-4bb1-8abf-10f8e1355733" -> "35cc0bf5-2c21-4bb8-b569-1c268a10719d"  [color="#000000", fontcolor="#000000", label=6687, penwidth=1.80073365043314];
+"35cc0bf5-2c21-4bb8-b569-1c268a10719d" -> "a91d4a34-5818-4276-97fa-b1767049d640"  [color="#000000", fontcolor="#000000", label=6477, penwidth=1.797833372702843];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "90dff550-f36b-41b2-87a2-4e1c927ee27f"  [color="#000000", fontcolor="#000000", label=6752, penwidth=1.8016129208704403];
+start_0 -> "a91d4a34-5818-4276-97fa-b1767049d640"  [color="#000000", fontcolor="#000000", label=11, penwidth=1.2259006045261818];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"a91d4a34-5818-4276-97fa-b1767049d640" -> end_0  [color="#000000", fontcolor="#000000", label=6533, penwidth=1.7986158720146377];
+"35cc0bf5-2c21-4bb8-b569-1c268a10719d" -> end_0  [color="#000000", fontcolor="#000000", label=191, penwidth=1.4779541247297983];
+"90dff550-f36b-41b2-87a2-4e1c927ee27f" -> end_0  [color="#000000", fontcolor="#000000", label=33, penwidth=1.3205782295105601];
+"008837d3-cc37-4bb1-8abf-10f8e1355733" -> end_0  [color="#000000", fontcolor="#000000", label=6, penwidth=1.176900922641392];
+}

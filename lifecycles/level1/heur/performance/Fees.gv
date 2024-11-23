@@ -1,0 +1,22 @@
+strict digraph G {
+bgcolor=white;
+"da5c33e2-30ef-49c3-9d79-5bebc9d84812" [fillcolor="#4EB0B0", fontcolor="#000000", label="Biometrics Fee - Outstanding (0s)", shape=box, style=filled];
+"e9c5ac7e-5e9b-4388-bbfa-15cccf7dfbfb" [fillcolor="#4FAFAF", fontcolor="#000000", label="Study Permit Fee - Paid (0s)", shape=box, style=filled];
+"8c11f6db-711a-47c0-9da8-209c16a519a9" [fillcolor="#4FAFAF", fontcolor="#000000", label="Study Permit Fee - Outstanding (0s)", shape=box, style=filled];
+"d7ad4c49-49c7-44a5-ad8a-7f36d34cf235" [fillcolor="#42BCBC", fontcolor="#000000", label="Work Permit Fee - Outstanding (0s)", shape=box, style=filled];
+"24c174ef-b7af-4e8f-9be0-7895f56fd798" [fillcolor="#4EB0B0", fontcolor="#000000", label="Biometrics Fee - Paid (0s)", shape=box, style=filled];
+"b5bdcde2-3e13-4d48-b60d-17eeaaa534c2" [fillcolor="#42BCBC", fontcolor="#000000", label="Work Permit Fee - Exempt (0s)", shape=box, style=filled];
+"da5c33e2-30ef-49c3-9d79-5bebc9d84812" -> "e9c5ac7e-5e9b-4388-bbfa-15cccf7dfbfb"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0];
+"e9c5ac7e-5e9b-4388-bbfa-15cccf7dfbfb" -> "b5bdcde2-3e13-4d48-b60d-17eeaaa534c2"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0];
+"8c11f6db-711a-47c0-9da8-209c16a519a9" -> "e9c5ac7e-5e9b-4388-bbfa-15cccf7dfbfb"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0];
+"8c11f6db-711a-47c0-9da8-209c16a519a9" -> "d7ad4c49-49c7-44a5-ad8a-7f36d34cf235"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0];
+"d7ad4c49-49c7-44a5-ad8a-7f36d34cf235" -> "24c174ef-b7af-4e8f-9be0-7895f56fd798"  [color="#000000", fontcolor="#000000", label="0s", penwidth=1.0];
+"b5bdcde2-3e13-4d48-b60d-17eeaaa534c2" -> "da5c33e2-30ef-49c3-9d79-5bebc9d84812"  [color="#000000", fontcolor="#000000", label="12D", penwidth=2.264230213049282];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "da5c33e2-30ef-49c3-9d79-5bebc9d84812"  [color="#000000", fontcolor="#000000", label=""];
+start_0 -> "8c11f6db-711a-47c0-9da8-209c16a519a9"  [color="#000000", fontcolor="#000000", label=""];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"e9c5ac7e-5e9b-4388-bbfa-15cccf7dfbfb" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"b5bdcde2-3e13-4d48-b60d-17eeaaa534c2" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"24c174ef-b7af-4e8f-9be0-7895f56fd798" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+}

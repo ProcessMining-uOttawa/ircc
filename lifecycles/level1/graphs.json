@@ -7,10 +7,10 @@
     "Criminality (Assessment)"
   ],
   "prefs": {
-    "Candidate_Integrated Search": "dcr",
-    "Biometric_Biographic": "dcr",
-    "Fees": "dcr",
-    "Medical (Assessment)": "dcr",
-    "Criminality (Assessment)": "dcr"
+    "Candidate_Integrated Search": { "format": "heur", "ann": "frequency" },
+    "Biometric_Biographic": { "format": "heur", "ann": "frequency" },
+    "Fees": { "format": "heur", "ann": "frequency" },
+    "Medical (Assessment)": { "format": "heur", "ann": "frequency" },
+    "Criminality (Assessment)": { "format": "heur", "ann": "frequency" }
   }
 }

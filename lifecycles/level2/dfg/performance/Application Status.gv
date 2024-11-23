@@ -1,0 +1,13 @@
+digraph {
+	graph [bgcolor=white]
+	node [shape=box]
+	-130017879673909137 [label="Closed (0s)" fillcolor="#FFFFFF" fontsize=12 style=filled]
+	-1408383238161056732 [label="Open (0s)" fillcolor="#FFFFFF" fontsize=12 style=filled]
+	8329855977342456950 [label="Prospective (0s)" fillcolor="#FFFFFF" fontsize=12 style=filled]
+	-130017879673909137 -> -130017879673909137 [label="21D" fontsize=12 penwidth=1.7753111755238316]
+	-1408383238161056732 -> -130017879673909137 [label="1MO" fontsize=12 penwidth=2.5999999999957257]
+	-1408383238161056732 -> -1408383238161056732 [label="25D" fontsize=12 penwidth=1.9269045310138693]
+	8329855977342456950 -> -1408383238161056732 [label="7h" fontsize=12 penwidth=1.0]
+	overlap=false
+	fontsize=11
+}

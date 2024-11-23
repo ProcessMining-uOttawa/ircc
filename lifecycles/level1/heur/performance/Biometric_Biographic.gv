@@ -1,0 +1,37 @@
+strict digraph G {
+bgcolor=white;
+"6afc99a4-1502-4f39-a970-694b9b81f2c8" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biometric Assessment - Required (0s)", shape=box, style=filled];
+"95ef41dd-ef79-4126-b0cf-7b8cd6e3f6b4" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biometrics - RCMP [start] (0s)", shape=box, style=filled];
+"4fc66832-c4e1-4588-bd7d-0ad08f8d364a" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biographic [start] (0s)", shape=box, style=filled];
+"2e105b66-e7cc-4564-8667-95e783fa1ae3" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biometric - FCC - USA [start] (0s)", shape=box, style=filled];
+"d47647f9-e73c-4df6-a3c3-e17f45022e0f" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biographic [end] (0s)", shape=box, style=filled];
+"d38a047c-01ab-4435-9d74-6fbd1cb1437a" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biometrics - RCMP [end] (0s)", shape=box, style=filled];
+"32342330-f371-441e-84ee-889fa05b78e2" [fillcolor="#39C5C5", fontcolor="#000000", label="Biometric - FCC Detail - USA [start] (0s)", shape=box, style=filled];
+"7179a6f5-b5ce-4fb9-8609-6c3f07c10e39" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biometric Assessment - Complete (0s)", shape=box, style=filled];
+"ec33fae8-24e6-4404-af07-2716ca4be636" [fillcolor="#4CB2B2", fontcolor="#000000", label="Biometric - FCC - USA [end] (0s)", shape=box, style=filled];
+"bf28ac6f-3cb7-4d87-bd68-2fe47e4bda63" [fillcolor="#39C5C5", fontcolor="#000000", label="Biometric - FCC Detail - USA [end] (0s)", shape=box, style=filled];
+"6afc99a4-1502-4f39-a970-694b9b81f2c8" -> "95ef41dd-ef79-4126-b0cf-7b8cd6e3f6b4"  [color="#000000", fontcolor="#000000", label="1s", penwidth=1.0684003010422285];
+"95ef41dd-ef79-4126-b0cf-7b8cd6e3f6b4" -> "4fc66832-c4e1-4588-bd7d-0ad08f8d364a"  [color="#000000", fontcolor="#000000", label="7h", penwidth=1.9258617249519194];
+"4fc66832-c4e1-4588-bd7d-0ad08f8d364a" -> "2e105b66-e7cc-4564-8667-95e783fa1ae3"  [color="#000000", fontcolor="#000000", label="1s", penwidth=1.066904479637841];
+"4fc66832-c4e1-4588-bd7d-0ad08f8d364a" -> "d47647f9-e73c-4df6-a3c3-e17f45022e0f"  [color="#000000", fontcolor="#000000", label="1D", penwidth=2.033900219944711];
+"2e105b66-e7cc-4564-8667-95e783fa1ae3" -> "d47647f9-e73c-4df6-a3c3-e17f45022e0f"  [color="#000000", fontcolor="#000000", label="10m", penwidth=1.5823159940967524];
+"2e105b66-e7cc-4564-8667-95e783fa1ae3" -> "d38a047c-01ab-4435-9d74-6fbd1cb1437a"  [color="#000000", fontcolor="#000000", label="17h", penwidth=2.0049767588884793];
+"d47647f9-e73c-4df6-a3c3-e17f45022e0f" -> "d38a047c-01ab-4435-9d74-6fbd1cb1437a"  [color="#000000", fontcolor="#000000", label="18D", penwidth=2.2975131282988626];
+"d47647f9-e73c-4df6-a3c3-e17f45022e0f" -> "32342330-f371-441e-84ee-889fa05b78e2"  [color="#000000", fontcolor="#000000", label="4h", penwidth=1.880191290562868];
+"d38a047c-01ab-4435-9d74-6fbd1cb1437a" -> "7179a6f5-b5ce-4fb9-8609-6c3f07c10e39"  [color="#000000", fontcolor="#000000", label="1h", penwidth=1.7510636370430053];
+"d38a047c-01ab-4435-9d74-6fbd1cb1437a" -> "ec33fae8-24e6-4404-af07-2716ca4be636"  [color="#000000", fontcolor="#000000", label="2h", penwidth=1.8148741494316707];
+"32342330-f371-441e-84ee-889fa05b78e2" -> "ec33fae8-24e6-4404-af07-2716ca4be636"  [color="#000000", fontcolor="#000000", label="5m", penwidth=1.5198409835427804];
+"32342330-f371-441e-84ee-889fa05b78e2" -> "bf28ac6f-3cb7-4d87-bd68-2fe47e4bda63"  [color="#000000", fontcolor="#000000", label="14s", penwidth=1.2476570587947164];
+"7179a6f5-b5ce-4fb9-8609-6c3f07c10e39" -> "ec33fae8-24e6-4404-af07-2716ca4be636"  [color="#000000", fontcolor="#000000", label="3h", penwidth=1.8553028756024748];
+"7179a6f5-b5ce-4fb9-8609-6c3f07c10e39" -> "32342330-f371-441e-84ee-889fa05b78e2"  [color="#000000", fontcolor="#000000", label="5h", penwidth=1.8961549773035322];
+"7179a6f5-b5ce-4fb9-8609-6c3f07c10e39" -> "d47647f9-e73c-4df6-a3c3-e17f45022e0f"  [color="#000000", fontcolor="#000000", label="17m", penwidth=1.6342863820054794];
+"ec33fae8-24e6-4404-af07-2716ca4be636" -> "bf28ac6f-3cb7-4d87-bd68-2fe47e4bda63"  [color="#000000", fontcolor="#000000", label="23D", penwidth=2.3207856352419123];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "6afc99a4-1502-4f39-a970-694b9b81f2c8"  [color="#000000", fontcolor="#000000", label=""];
+start_0 -> "4fc66832-c4e1-4588-bd7d-0ad08f8d364a"  [color="#000000", fontcolor="#000000", label=""];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"ec33fae8-24e6-4404-af07-2716ca4be636" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"7179a6f5-b5ce-4fb9-8609-6c3f07c10e39" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"d47647f9-e73c-4df6-a3c3-e17f45022e0f" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+"bf28ac6f-3cb7-4d87-bd68-2fe47e4bda63" -> end_0  [color="#000000", fontcolor="#000000", label=""];
+}

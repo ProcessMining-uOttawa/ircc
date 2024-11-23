@@ -1,0 +1,12 @@
+strict digraph G {
+bgcolor=white;
+"1cacf802-e502-44c1-af13-67cfeaa6eee2" [fillcolor="#50AEAE", fontcolor="#000000", label="Prospective (7734)", shape=box, style=filled];
+"b3c40db2-88f4-4f03-bf58-2918b9a8069a" [fillcolor="#50AEAE", fontcolor="#000000", label="Open (7736)", shape=box, style=filled];
+"c68f467f-ce70-4c5a-a119-ac5de6f3e6cf" [fillcolor="#50AEAE", fontcolor="#000000", label="Closed (7793)", shape=box, style=filled];
+"1cacf802-e502-44c1-af13-67cfeaa6eee2" -> "b3c40db2-88f4-4f03-bf58-2918b9a8069a"  [color="#000000", fontcolor="#000000", label=7734, penwidth=1.8139555239097422];
+"b3c40db2-88f4-4f03-bf58-2918b9a8069a" -> "c68f467f-ce70-4c5a-a119-ac5de6f3e6cf"  [color="#000000", fontcolor="#000000", label=7734, penwidth=1.8139555239097422];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "1cacf802-e502-44c1-af13-67cfeaa6eee2"  [color="#000000", fontcolor="#000000", label=7734, penwidth=1.8139555239097422];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"c68f467f-ce70-4c5a-a119-ac5de6f3e6cf" -> end_0  [color="#000000", fontcolor="#000000", label=7734, penwidth=1.8139555239097422];
+}

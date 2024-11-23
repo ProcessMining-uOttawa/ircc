@@ -1,0 +1,16 @@
+strict digraph G {
+bgcolor=white;
+"3d758d04-a635-46a9-b107-ab9d3e0399b0" [fillcolor="#44BABA", fontcolor="#000000", label="Medical - Passed (1988)", shape=box, style=filled];
+"bcd5dc22-b148-4977-95ce-11ff2c83c04c" [fillcolor="#44BABA", fontcolor="#000000", label="Medical Assessment - Passed (1988)", shape=box, style=filled];
+"fddfda19-e57b-47c3-bafc-acb834012485" [fillcolor="#41BDBD", fontcolor="#000000", label="Medical - Not Started (1389)", shape=box, style=filled];
+"584b433a-48a8-457a-89a2-d1a084101c72" [fillcolor="#41BDBD", fontcolor="#000000", label="Medical Assessment - Not Started (1389)", shape=box, style=filled];
+"3d758d04-a635-46a9-b107-ab9d3e0399b0" -> "bcd5dc22-b148-4977-95ce-11ff2c83c04c"  [color="#000000", fontcolor="#000000", label=1988, penwidth=1.6904897526230884];
+"fddfda19-e57b-47c3-bafc-acb834012485" -> "584b433a-48a8-457a-89a2-d1a084101c72"  [color="#000000", fontcolor="#000000", label=1389, penwidth=1.6579144569204307];
+"584b433a-48a8-457a-89a2-d1a084101c72" -> "3d758d04-a635-46a9-b107-ab9d3e0399b0"  [color="#000000", fontcolor="#000000", label=1361, penwidth=1.656064498791769];
+start_0 [color="#000000", fillcolor="#32CD32", fontcolor="#32CD32", fontsize=8, label="@@S", style=filled];
+start_0 -> "3d758d04-a635-46a9-b107-ab9d3e0399b0"  [color="#000000", fontcolor="#000000", label=627, penwidth=1.585685469678927];
+start_0 -> "fddfda19-e57b-47c3-bafc-acb834012485"  [color="#000000", fontcolor="#000000", label=1378, penwidth=1.657192170708482];
+end_0 [color="#FFA500", fillcolor="#FFA500", fontcolor="#FFA500", fontsize=8, label="@@E", style=filled];
+"bcd5dc22-b148-4977-95ce-11ff2c83c04c" -> end_0  [color="#000000", fontcolor="#000000", label=1988, penwidth=1.6904897526230884];
+"584b433a-48a8-457a-89a2-d1a084101c72" -> end_0  [color="#000000", fontcolor="#000000", label=17, penwidth=1.2627610688996513];
+}

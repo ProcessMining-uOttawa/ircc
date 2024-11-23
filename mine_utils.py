@@ -1,3 +1,4 @@
+from enum import Enum
 from pm4py.algo.discovery.dfg import algorithm as dfg_discovery
 from pm4py.algo.discovery.alpha import algorithm as alpha_miner
 from pm4py.algo.discovery.heuristics import algorithm as heuristics_miner
@@ -11,6 +12,10 @@ from pm4py.objects.conversion.process_tree import converter as process_tree_conv
 from pm4py.visualization.heuristics_net.variants.pydotplus_vis import get_graph as hn_get_graph
 import pandas as pd
 
+class ProcAnn(Enum):
+    FREQ = "frequency"
+    PERF = "performance"
+
 def mine_vis(visualizer, gviz, output_path, save_gviz=False):
     if output_path is not None:
         visualizer.save(gviz, f"{output_path}.jpg")
@@ -19,16 +24,22 @@ def mine_vis(visualizer, gviz, output_path, save_gviz=False):
     else:
         visualizer.view(gviz)
 
-def mine_dfg(log, output_path=None, save_gviz=False):
+def mine_dfg(log, ann=ProcAnn.FREQ, output_path=None, save_gviz=False):
+    match ann:
+        case ProcAnn.FREQ:
+            mine_var = dfg_discovery.Variants.FREQUENCY
+            vis_var = dfg_visualizer.Variants.FREQUENCY
+        case ProcAnn.PERF:
+            mine_var = dfg_discovery.Variants.PERFORMANCE
+            vis_var = dfg_visualizer.Variants.PERFORMANCE
+    
     # discover
-    dfg = dfg_discovery.apply(log, variant=dfg_discovery.Variants.FREQUENCY)
+    dfg = dfg_discovery.apply(log, variant=mine_var)
 
     # visualize
-    gviz = dfg_visualizer.apply(dfg, log=log, variant=dfg_visualizer.Variants.FREQUENCY)
+    gviz = dfg_visualizer.apply(dfg, log=log, variant=vis_var)
     mine_vis(dfg_visualizer, gviz, output_path, save_gviz)
         
-    
-# (todo - get annotations such as frequency/performance here as well)
 
 def mine_alpha(log, output_path=None, save_gviz=False):
     # alpha miner
@@ -38,10 +49,10 @@ def mine_alpha(log, output_path=None, save_gviz=False):
     gviz = pn_visualizer.apply(net, initial_marking, final_marking)
     mine_vis(pn_visualizer, gviz, output_path, save_gviz)
     
-    
-def mine_heur(log, output_path=None, save_gviz=False):
+
+def mine_heur(log, ann=ProcAnn.FREQ, output_path=None, save_gviz=False):
     # heuristics miner
-    heu_net = heuristics_miner.apply_heu(log)
+    heu_net = heuristics_miner.apply_heu(log, { "heu_net_decoration": ann.value })
 
     # visualize
     # (works differently ...)
