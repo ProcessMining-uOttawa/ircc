@@ -1,9 +1,0 @@
-digraph {
-	graph [bgcolor=white rankdir=LR]
-	node [shape=Mrecord]
-	edge [arrowsize=0.5]
-	Failed [label="{  |   } | { Failed }" font_size=12 style=solid]
-	Passed [label="{  |   } | { Passed }" font_size=12 style=solid]
-	"Review Required" [label="{  |   } | { Review Required }" font_size=12 style=solid]
-	overlap=false
-}

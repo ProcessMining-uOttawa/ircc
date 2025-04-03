@@ -1,9 +1,8 @@
 <html>
     <head>
         <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-        <!-- copied from http://webgraphviz.com/ -->
-        <!-- possible source: https://github.com/mdaines/viz-js -->
-        <script src="js/viz.js"></script>
+         <!-- https://github.com/mdaines/viz-js/releases/tag/release-viz-3.12.0 -->
+        <script src="js/viz-standalone.js"></script>
         <style>
             g.subprocess > text:last-child { cursor: pointer }
             .subprocess polyline, .subprocess path, .subprocess polygon { 
@@ -34,9 +33,11 @@
         <div id="svg"></div>
 
         <script type="module">
-            const all_formats = [ "dfg", "alpha", "dcr", "heur", "induct" ]
+            const viz = await Viz.instance()
+
+            const all_formats = [ "bpmn", "dcr", "heur" ]
             const all_anns = [ "frequency", "performance" ]
-            const formats_with_ann = [ "dfg", "heur" ]
+            const formats_with_ann = [ "heur" ]
 
             class Navigation {
 
@@ -216,12 +217,15 @@
                         }
 
                         let svg = await (await fetch(path)).text()
-                        this.viz = Viz(svg, "svg")
+                        this.viz = viz.renderSVGElement(svg);
                         
                         this.show()
 
+                        // anonymize
+                        // $('text').html("")
+
                     } catch (error) {
-                        window.alert("Sorry, this process model is too big :-(")
+                        window.alert("ERROR")
                         console.error("error loading graph:", path, error)
                     }
                 }

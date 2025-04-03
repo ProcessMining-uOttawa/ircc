@@ -6,6 +6,7 @@ from pm4py.algo.discovery.inductive import algorithm as inductive_miner
 from pm4py.algo.discovery.ilp import algorithm as ilp_miner
 from pm4py.visualization.dfg import visualizer as dfg_visualizer
 from pm4py.visualization.petri_net import visualizer as pn_visualizer
+from pm4py.visualization.bpmn import visualizer as bpmn_visualizer
 from pm4py.visualization.heuristics_net import visualizer as hn_visualizer
 from pm4py.visualization.process_tree import visualizer as pt_visualizer
 from pm4py.objects.conversion.process_tree import converter as process_tree_converter
@@ -64,17 +65,24 @@ def mine_heur(log, ann=ProcAnn.FREQ, output_path=None, save_gviz=False):
     mine_vis(hn_visualizer, gviz, output_path, False)
     
     
-def mine_induct(log, to_petri_net=True, output_path=None, save_gviz=False):
+def mine_induct(log, convert_to=None, output_path=None, save_gviz=False):
     # create the process tree
     # (wvw: drop "_tree" from call)
     tree = inductive_miner.apply(log)
 
-    if to_petri_net:
-        net, initial_marking, final_marking = process_tree_converter.apply(tree)
-        gviz = pn_visualizer.apply(net, initial_marking, final_marking)
+    if convert_to is not None:
+        match (convert_to):
+            case 'petri_net': 
+                net, initial_marking, final_marking = process_tree_converter.apply(tree)
+                gviz = pn_visualizer.apply(net, initial_marking, final_marking)
+            case 'bpmn':
+                bpmn = process_tree_converter.apply(tree, variant=process_tree_converter.Variants.TO_BPMN)
+                gviz = bpmn_visualizer.apply(bpmn)
+            case _:
+                raise f"Unsupported format: {convert_to}"
+        
         mine_vis(pn_visualizer, gviz, output_path, save_gviz)
     else:
-        # visualize
         gviz = pt_visualizer.apply(tree)
         mine_vis(pt_visualizer, gviz, output_path, save_gviz)
         
