@@ -27,6 +27,12 @@ def get_variants(log, unordered=False, verbose=False):
     else:
         return variants
 
+def get_variant_ratio(log, vars_stats):
+    num_traces = len(log['case:concept:name'].unique())
+    num_vars = vars_stats.shape[0]
+    var_ratio = round((num_vars / num_traces) * 100, 2)
+    return f"# traces = {num_traces}, # vars = {num_vars}, ratio = {var_ratio}"
+
 def get_variants_stats(log, unordered=False):
     variants = get_variants(log, unordered)
     variants = pd.DataFrame(variants.items())
