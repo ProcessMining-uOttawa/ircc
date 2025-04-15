@@ -13,6 +13,11 @@ from pm4py.objects.conversion.process_tree import converter as process_tree_conv
 from pm4py.visualization.heuristics_net.variants.pydotplus_vis import get_graph as hn_get_graph
 import pandas as pd
 
+def get_log(path):
+    log = pd.read_csv(path)
+    log['time:timestamp'] = pd.to_datetime(log['time:timestamp'])
+    return log
+
 class ProcAnn(Enum):
     FREQ = "frequency"
     PERF = "performance"
@@ -127,6 +132,98 @@ def log_subset_vertical(log, perc):
     print(counts.describe())
     
     return log_subset
+
+
+def get_time_diff(log):
+    log = log.sort_values(by=['case:concept:name', 'time:timestamp', 'concept:name'])
+    log = log.reset_index().drop('index', axis=1) # forget the current index
+    log = log.reset_index() # get current index as column
+    
+    cases_firsts = log.groupby('case:concept:name').first().reset_index()
+    cases_firsts
+    
+    log['time_diff'] = log['time:timestamp'] - log['time:timestamp'].shift(1)
+    log['time_diff'] = log['time_diff'].apply(pd.Timedelta.total_seconds)
+    log['time_diff']
+    
+    # irrelevant time differences for first events of cases
+    log.loc[cases_firsts['index'], 'time_diff'] = 1_000_000
+    # print(log[log['time_diff']==1_000_000].shape[0]) # sanity check
+    
+    return log
+
+
+def equal_timestamps_interval(log, interval):
+    if 'time_diff' not in log.columns:
+        log = get_time_diff(log)
+    
+    # set time_diff2 to 0 if time_diff is less than <interval>
+    log['time_diff2'] = log['time_diff']
+    log.loc[log['time_diff2'] < interval, 'time_diff2'] = 0
+    
+    # get all rows where time difference was _not_ less than interval
+    intervals = log[log['time_diff2'] > 0][['index', 'time:timestamp']]
+    # these rows' timestamps will apply to all subsequent rows where time_diff2 == 0
+    # (so, until the next row in this df)
+    intervals['from'] = intervals['index']
+    intervals['to'] = intervals['index'].shift(-1)
+    # set last "to" to max value of index
+    intervals.iloc[-1, 3] = log['index'].max() + 1 # (to get an inclusive interval of max)
+    # print(intervals)
+    
+    # convert interval into lists with all relevant indexes
+    # (later, we can "explode" these into their own rows)
+
+    def gen_interval(row):
+        if row.iloc[0] == row.iloc[1]:
+            return [int(row.iloc[0])]
+        else:
+            return range(int(row.iloc[0]), int(row.iloc[1]))
+
+    intervals['list'] = intervals[['from', 'to']].apply(gen_interval, axis=1)
+    # use timestamp as index; we know they're unique at this point
+    # and we need them in the explode result
+    intervals = intervals.set_index(intervals['time:timestamp'])
+    intervals = intervals[['list']]
+    # print(intervals)
+    
+    # explode the interval lists into separate rows
+
+    # add timestamp index as separate column (reset index)
+    intervals = intervals['list'].explode().reset_index()
+    intervals = intervals.rename({'time:timestamp': 'time:timestamp2', 'list': 'index'}, axis=1)
+    # print(intervals)
+    
+    # join log with intervals based on the index 
+    # for now, their new timestamp will be "time:timestamp2"
+    # (use left join; rows with time_diff2 > 0 will be N/A)
+    log2 = log.merge(intervals, left_on='index', right_on='index', how='left')
+    # for cases where time_diff2 > 0, simply copy the original timestamps
+    log2.loc[log2['time_diff2']>0, 'time:timestamp2'] = log2.loc[log2['time_diff2']>0, 'time:timestamp']
+    
+    # drop unused columns (incl. original timestamp) & rename
+    log2 = log2.drop([ 'index', 'time_diff', 'time_diff2', 'time:timestamp' ], axis=1)
+    log2 = log2.rename({ 'time:timestamp2': 'time:timestamp' }, axis=1)
+    
+    log2 = log2.sort_values(by=['case:concept:name', 'time:timestamp', 'concept:name'])
+    return log2
+
+    # alternative loop-based solution
+    # # (takes 3-4 minutes)
+
+    # log['time:timestamp2'] = log['time:timestamp']
+
+    # cur_ts = None
+    # for idx, row in log.iterrows():
+    #     if (idx % 1000 == 0):
+    #         print(idx, round((idx / log.shape[0]) * 100, 2), "%")
+        
+    #     if row['time_diff2'] > 0: # always the case for the first row
+    #          cur_ts = row['time:timestamp']
+        
+    #     else:
+    #         log.loc[idx, 'time:timestamp2'] = cur_ts
+
 
 def aggregate_events(log, events, max_timedelta, repl=None, verbose=False):
     # log = log.copy()
