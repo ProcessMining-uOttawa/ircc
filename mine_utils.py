@@ -201,8 +201,9 @@ def equal_timestamps_interval(log, interval):
     # for cases where time_diff2 > 0, simply copy the original timestamps
     log2.loc[log2['time_diff2']>0, 'time:timestamp2'] = log2.loc[log2['time_diff2']>0, 'time:timestamp']
     
-    # drop unused columns (incl. original timestamp) & rename
-    log2 = log2.drop([ 'index', 'time_diff', 'time_diff2', 'time:timestamp' ], axis=1)
+    # drop current timestamp & unused columns (but keep index)
+    log2 = log2.drop([ 'time_diff', 'time_diff2', 'time:timestamp' ], axis=1)
+    # this is our new timestamp
     log2 = log2.rename({ 'time:timestamp2': 'time:timestamp' }, axis=1)
     
     log2 = log2.sort_values(by=['case:concept:name', 'time:timestamp', 'concept:name'])

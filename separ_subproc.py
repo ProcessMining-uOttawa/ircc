@@ -11,7 +11,7 @@ def separ_subproc(subproc_evts, non_subproc_evts, parent_col, subactiv_col, non_
     os.mkdir(os.path.join(dir_subproc, "logs"))
 
     # per activity,
-    for label, sublog in labeled_logs:
+    for label, sublog in labeled_logs:        
         print(f"{label} (# events: {sublog.shape[0]})")
 
         # the subactivity column will be the activity name here
