@@ -35,14 +35,22 @@
         <script type="module">
             const viz = await Viz.instance()
 
-            const all_formats = [ "bpmn", "dcr", "heur" ]
+            const all_formats = [ "bpmn", "dcr", "dfg" ]
             const all_anns = [ "frequency", "performance" ]
-            const formats_with_ann = [ "heur" ]
+            const formats_with_ann = [ "dfg" ]
 
             class Navigation {
 
                 constructor() {
                     this.stack = new Stack()
+
+                    // TODO
+                    // // support for browser's back (not forward) button
+                    // window.addEventListener("popstate", (event) => {
+                    //     console.log(event.state, this.stack.length())
+                    //     if (Number.isInteger(event.state) && (event.state + 1) < (this.stack.length()))
+                    //         this.prior_graph(event.state)
+                    // })
                 }
 
                 async init() {
@@ -58,6 +66,8 @@
                     let graph = new Graph(this, name)
                     graph.load(this)
 
+                    // make sure back btn is shown
+                    // history.pushState(this.stack.length(), null, null)
                     this.stack.push(graph)
                     this.setup_trail()
 
@@ -93,7 +103,6 @@
 
                 setup_vis_options() {
                     let cur = this.stack.last()
-                    
                     let self = this
                     this.__setup_links("formats", "format", 
                         all_formats, cur.pref['format'],
@@ -231,7 +240,29 @@
                 }
 
                 show() {
-                    $("#svg").html(this.viz)
+                    let svg = $("#svg")
+                    svg.html(this.viz)
+
+                    // - adjust width of SVG element to suit window
+                    // this took me ALMOST AN HOUR
+                    // all give wrong widths: offsetWidth, width(), getBBox(), getComputedStyle, getBoundingClientRect
+                    // width, viewingBox of svg element is also incorrect (so, _have_ to set html contents of svg first)
+                    // scrollWidth only thing that works
+                    // console.log(svg[0].scrollWidth, screen.availWidth)
+                    let screenWidth = screen.availWidth - 25
+                    if (svg[0].scrollWidth > screenWidth) {
+                        let newRatio = screenWidth / svg[0].scrollWidth
+                        let newWidth = screenWidth
+                        // don't reduce it too much ...
+                        if (newRatio <= 0.5) {
+                            newRatio = 0.5
+                            newWidth = svg[0].scrollWidth * newRatio
+                        }
+                        let newHeight = svg[0].scrollHeight * newRatio
+                        $(this.viz).width(newWidth)
+                        $(this.viz).height(newHeight)
+                    }
+                    svg.html(this.viz)
 
                     let self = this, re = /\s+\(\d+\)$/
                     $("#svg .node").each(function() {
@@ -239,7 +270,7 @@
                         let title = node.find("text:last-child").text()
                         title = title.replace(re, "")
                         
-                        if (title.endsWith("[start]") || title.endsWith("[end]")) {
+                        if (title.includes("[start]") || title.includes("[end]")) {
                             node[0].classList.add("subprocess")
                             node.click(function() {
                                 name = title.substring(0, title.indexOf(" ["))
@@ -248,6 +279,8 @@
                             })
                         }
                     })
+
+                    window.scrollTo(0, 0);
                 }
             }
 

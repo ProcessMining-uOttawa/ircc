@@ -16,9 +16,12 @@ def separ_subproc(subproc_evts, non_subproc_evts, parent_col, subactiv_col, non_
 
         # the subactivity column will be the activity name here
         if subactiv_col != 'concept:name':
+            if 'concept:name' in sublog.columns:
+                sublog = sublog.drop('concept:name', axis=1)
             sublog = sublog.rename({subactiv_col: 'concept:name'}, axis=1)
 
-        sublog = sublog.sort_values(by=['case:concept:name', 'time:timestamp'])
+        # not necessary if groupby retains sorting order
+        sublog = sublog.sort_values(by=['case:concept:name', 'time:timestamp', 'concept:name'])
         # store log
         sublog.to_csv(os.path.join(dir_subproc, "logs", f"{label.replace('/', '_')}.csv"), index=False)
         
