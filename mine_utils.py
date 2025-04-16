@@ -135,8 +135,9 @@ def log_subset_vertical(log, perc):
 
 
 def get_time_diff(log):
+    log = log.drop([ 'index', 'time_diff' ], axis=1, errors='ignore') # drop any prior columns (if any)
     log = log.sort_values(by=['case:concept:name', 'time:timestamp', 'concept:name'])
-    log = log.reset_index().drop('index', axis=1) # forget the current index
+    log = log.reset_index().drop('index', axis=1) # reset & forget current index
     log = log.reset_index() # get current index as column
     
     cases_firsts = log.groupby('case:concept:name').first().reset_index()
@@ -181,8 +182,8 @@ def equal_timestamps_interval(log, interval):
             return range(int(row.iloc[0]), int(row.iloc[1]))
 
     intervals['list'] = intervals[['from', 'to']].apply(gen_interval, axis=1)
-    # use timestamp as index; we know they're unique at this point
-    # and we need them in the explode result
+    # use timestamp as index; we need them in the explode result
+    # (we know they're unique at this point)
     intervals = intervals.set_index(intervals['time:timestamp'])
     intervals = intervals[['list']]
     # print(intervals)
@@ -210,7 +211,7 @@ def equal_timestamps_interval(log, interval):
     return log2
 
     # alternative loop-based solution
-    # # (takes 3-4 minutes)
+    # # (takes 3-4 minutes vs. 2-4 seconds)
 
     # log['time:timestamp2'] = log['time:timestamp']
 

@@ -30,7 +30,8 @@ def separ_subproc(subproc_evts, non_subproc_evts, parent_col, subactiv_col, non_
     
     # re-add the non-subprocess activities
     non_subproc_evts['concept:name'] = non_subproc_evts[non_subactiv_col]
-    abstract_log = pd.concat([ abstract_log, non_subproc_evts ], ignore_index=True).sort_values(by=['case:concept:name','time:timestamp'])
+    # important to sort on concept:name here as well; assures the same ordering for "almost-simultaneous" events
+    abstract_log = pd.concat([ abstract_log, non_subproc_evts ], ignore_index=True).sort_values(by=['case:concept:name','time:timestamp', 'concept:name'])
     abstract_log.to_csv(path_log, index=False)
     
     return abstract_log
