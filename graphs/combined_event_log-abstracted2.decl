@@ -1,0 +1,236 @@
+activity Final Assessment [end]
+activity Final Assessment [start]
+activity Info Sharing Assessment [end]
+activity Eligibility Assessment [start]
+activity Cost Recovery [start]
+activity Info Sharing Assessment [start]
+activity Cost Recovery [end]
+activity Application Status [start]
+activity Application Status [end]
+activity Eligibility Assessment [end]
+activity Misrepresentation - NIL
+activity Received - Date
+activity Candidate Search [start]
+activity Candidate Search [end]
+activity Integrated Search [start]
+activity Integrated Search [end]
+activity Candidate ID Decision [start]
+activity Candidate ID Decision [end]
+activity Candidate ID [start]
+activity Candidate ID [end]
+activity Auto Promote Decision [start]
+activity Auto Promote Decision [end]
+activity Auto Promote [end]
+activity Auto Promote [start]
+activity Criminality Activity [end]
+activity Criminality Activity [start]
+activity Other Reqs Assessment [start]
+activity Other Reqs Assessment [end]
+activity Other Req Assessment [end]
+activity Other Req Assessment [start]
+activity Application Transfer - Transferred
+activity Medical Activity [start]
+activity Medical Activity [end]
+Alternate Succession[Eligibility Assessment [start], Received - Date] | | |
+Alternate Succession[Eligibility Assessment [start], Misrepresentation - NIL] | | |
+Alternate Succession[Info Sharing Assessment [start], Final Assessment [end]] | | |
+Exactly1[Cost Recovery [end]] | |
+Exactly1[Eligibility Assessment [start]] | |
+Exactly1[Misrepresentation - NIL] | |
+Exactly1[Cost Recovery [start]] | |
+Exactly1[Final Assessment [start]] | |
+Exactly1[Final Assessment [end]] | |
+Exactly1[Application Status [end]] | |
+Exactly1[Info Sharing Assessment [start]] | |
+Exactly1[Application Status [start]] | |
+Exactly1[Eligibility Assessment [end]] | |
+Exactly1[Received - Date] | |
+Exactly1[Info Sharing Assessment [end]] | |
+Init[Application Status [start]] | |
+Chain Succession[Eligibility Assessment [start], Final Assessment [start]] | | |
+Alternate Succession[Application Status [start], Received - Date] | | |
+Alternate Succession[Final Assessment [start], Received - Date] | | |
+Alternate Succession[Eligibility Assessment [start], Final Assessment [end]] | | |
+Absence2[Other Reqs Assessment [end]] | |
+Absence2[Other Req Assessment [end]] | |
+Alternate Succession[Received - Date, Application Status [end]] | | |
+Absence2[Medical Activity [start]] | |
+Alternate Succession[Misrepresentation - NIL, Final Assessment [end]] | | |
+Alternate Succession[Info Sharing Assessment [start], Application Status [end]] | | |
+Absence2[Other Req Assessment [start]] | |
+Alternate Succession[Application Status [start], Final Assessment [start]] | | |
+Alternate Succession[Received - Date, Final Assessment [end]] | | |
+Alternate Succession[Application Status [start], Info Sharing Assessment [start]] | | |
+Absence2[Medical Activity [end]] | |
+Absence2[Other Reqs Assessment [start]] | |
+Alternate Succession[Application Status [start], Application Status [end]] | | |
+Alternate Succession[Final Assessment [start], Application Status [end]] | | |
+Alternate Succession[Application Status [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Final Assessment [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Application Status [start], Eligibility Assessment [start]] | | |
+Alternate Succession[Application Status [start], Misrepresentation - NIL] | | |
+Alternate Succession[Application Status [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Final Assessment [start], Misrepresentation - NIL] | | |
+Alternate Succession[Application Status [start], Final Assessment [end]] | | |
+Alternate Succession[Misrepresentation - NIL, Received - Date] | | |
+Alternate Succession[Final Assessment [start], Final Assessment [end]] | | |
+Alternate Succession[Application Status [start], Cost Recovery [start]] | | |
+Alternate Succession[Eligibility Assessment [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Eligibility Assessment [end], Final Assessment [end]] | | |
+Alternate Succession[Eligibility Assessment [start], Info Sharing Assessment [start]] | | |
+Alternate Succession[Application Status [start], Cost Recovery [end]] | | |
+Alternate Succession[Eligibility Assessment [start], Application Status [end]] | | |
+Alternate Succession[Misrepresentation - NIL, Application Status [end]] | | |
+Alternate Succession[Cost Recovery [start], Final Assessment [end]] | | |
+Alternate Succession[Cost Recovery [start], Application Status [end]] | | |
+Alternate Succession[Cost Recovery [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Cost Recovery [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Misrepresentation - NIL, Eligibility Assessment [end]] | | |
+Alternate Succession[Eligibility Assessment [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Info Sharing Assessment [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Final Assessment [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Received - Date, Eligibility Assessment [end]] | | |
+Exactly1[Candidate Search [start]] | |
+Exactly1[Candidate Search [end]] | |
+Alternate Succession[Candidate Search [end], Application Status [end]] | | |
+Alternate Succession[Application Status [start], Candidate Search [start]] | | |
+Alternate Succession[Candidate Search [start], Cost Recovery [end]] | | |
+Alternate Succession[Candidate Search [end], Final Assessment [end]] | | |
+Alternate Succession[Candidate Search [start], Final Assessment [end]] | | |
+Alternate Succession[Candidate Search [start], Application Status [end]] | | |
+Alternate Succession[Application Status [start], Candidate Search [end]] | | |
+Alternate Succession[Integrated Search [end], Final Assessment [end]] | | |
+Exactly1[Integrated Search [start]] | |
+Exactly1[Integrated Search [end]] | |
+Alternate Succession[Application Status [start], Integrated Search [start]] | | |
+Alternate Succession[Final Assessment [start], Integrated Search [start]] | | |
+Alternate Succession[Integrated Search [end], Application Status [end]] | | |
+Alternate Succession[Eligibility Assessment [start], Integrated Search [end]] | | |
+Alternate Succession[Integrated Search [start], Final Assessment [end]] | | |
+Alternate Succession[Final Assessment [start], Integrated Search [end]] | | |
+Alternate Succession[Application Status [start], Integrated Search [end]] | | |
+Alternate Succession[Info Sharing Assessment [start], Integrated Search [end]] | | |
+Alternate Succession[Integrated Search [start], Application Status [end]] | | |
+Alternate Succession[Candidate Search [start], Integrated Search [end]] | | |
+Alternate Succession[Candidate Search [start], Integrated Search [start]] | | |
+Alternate Succession[Eligibility Assessment [start], Integrated Search [start]] | | |
+Alternate Succession[Info Sharing Assessment [start], Integrated Search [start]] | | |
+Alternate Succession[Info Sharing Assessment [start], Misrepresentation - NIL] | | |
+Alternate Succession[Info Sharing Assessment [start], Received - Date] | | |
+Alternate Succession[Candidate Search [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Candidate Search [end], Info Sharing Assessment [end]] | | |
+Alternate Succession[Candidate Search [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Candidate Search [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Info Sharing Assessment [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Received - Date, Info Sharing Assessment [end]] | | |
+Alternate Succession[Misrepresentation - NIL, Info Sharing Assessment [end]] | | |
+Alternate Succession[Candidate Search [start], Cost Recovery [start]] | | |
+Absence3[Application Transfer - Transferred] | |
+Alternate Succession[Cost Recovery [end], Final Assessment [end]] | | |
+Alternate Succession[Cost Recovery [end], Application Status [end]] | | |
+Alternate Succession[Integrated Search [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Integrated Search [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Integrated Search [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Cost Recovery [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Integrated Search [end], Info Sharing Assessment [end]] | | |
+Exactly1[Candidate ID Decision [end]] | |
+Exactly1[Candidate ID Decision [start]] | |
+Alternate Succession[Application Status [start], Candidate ID Decision [end]] | | |
+Alternate Succession[Candidate ID Decision [end], Final Assessment [end]] | | |
+Alternate Succession[Application Status [start], Candidate ID Decision [start]] | | |
+Alternate Succession[Candidate ID Decision [start], Final Assessment [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Application Status [end]] | | |
+Alternate Succession[Candidate ID Decision [end], Application Status [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Candidate ID Decision [end], Info Sharing Assessment [end]] | | |
+Alternate Succession[Candidate Search [end], Integrated Search [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Candidate Search [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Candidate ID Decision [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Info Sharing Assessment [end], Application Status [end]] | | |
+Alternate Succession[Application Status [start], Candidate ID [end]] | | |
+Exactly1[Candidate ID [start]] | |
+Exactly1[Candidate ID [end]] | |
+Alternate Succession[Candidate ID [start], Final Assessment [end]] | | |
+Alternate Succession[Application Status [start], Candidate ID [start]] | | |
+Alternate Succession[Candidate ID [end], Final Assessment [end]] | | |
+Alternate Succession[Candidate ID [start], Application Status [end]] | | |
+Alternate Succession[Candidate ID [end], Application Status [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Candidate ID [start]] | | |
+Alternate Succession[Candidate ID [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Candidate ID [end], Info Sharing Assessment [end]] | | |
+Chain Succession[Candidate ID [start], Candidate Search [end]] | | |
+Alternate Succession[Candidate ID [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Candidate ID [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Auto Promote Decision [start], Application Status [end]] | | |
+Exactly1[Auto Promote Decision [end]] | |
+Exactly1[Auto Promote Decision [start]] | |
+Alternate Succession[Application Status [start], Auto Promote Decision [end]] | | |
+Alternate Succession[Auto Promote Decision [start], Final Assessment [end]] | | |
+Alternate Succession[Auto Promote Decision [end], Application Status [end]] | | |
+Alternate Succession[Auto Promote Decision [end], Final Assessment [end]] | | |
+Alternate Succession[Application Status [start], Auto Promote Decision [start]] | | |
+Alternate Succession[Auto Promote Decision [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Auto Promote Decision [end], Info Sharing Assessment [end]] | | |
+Alternate Succession[Cost Recovery [start], Integrated Search [end]] | | |
+Alternate Succession[Auto Promote Decision [start], Candidate ID Decision [end]] | | |
+Alternate Succession[Cost Recovery [start], Integrated Search [start]] | | |
+Exactly1[Auto Promote [start]] | |
+Exactly1[Auto Promote [end]] | |
+Alternate Succession[Auto Promote [start], Application Status [end]] | | |
+Alternate Succession[Application Status [start], Auto Promote [end]] | | |
+Alternate Succession[Auto Promote [start], Final Assessment [end]] | | |
+Alternate Succession[Auto Promote [end], Final Assessment [end]] | | |
+Alternate Succession[Auto Promote [end], Application Status [end]] | | |
+Alternate Succession[Application Status [start], Auto Promote [start]] | | |
+Alternate Succession[Auto Promote Decision [start], Auto Promote [start]] | | |
+Alternate Succession[Auto Promote [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Auto Promote [end], Info Sharing Assessment [end]] | | |
+Alternate Succession[Auto Promote Decision [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Auto Promote Decision [start], Eligibility Assessment [end]] | | |
+Chain Succession[Auto Promote [start], Candidate ID Decision [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Integrated Search [end]] | | |
+Alternate Succession[Candidate ID [start], Integrated Search [end]] | | |
+Chain Succession[Candidate ID [end], Candidate ID [start]] | | |
+Chain Succession[Candidate ID Decision [start], Candidate ID [end]] | | |
+Chain Succession[Final Assessment [start], Info Sharing Assessment [start]] | | |
+Alternate Succession[Candidate ID [end], Candidate Search [end]] | | |
+Alternate Succession[Auto Promote Decision [end], Auto Promote [end]] | | |
+Alternate Succession[Auto Promote [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Auto Promote [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Candidate ID [end], Integrated Search [end]] | | |
+Alternate Succession[Application Status [start], Criminality Activity [start]] | | |
+Alternate Succession[Criminality Activity [start], Application Status [end]] | | |
+Exactly1[Criminality Activity [start]] | |
+Exactly1[Criminality Activity [end]] | |
+Alternate Succession[Criminality Activity [start], Final Assessment [end]] | | |
+Alternate Succession[Application Status [start], Criminality Activity [end]] | | |
+Alternate Succession[Criminality Activity [start], Info Sharing Assessment [end]] | | |
+Alternate Succession[Criminality Activity [start], Eligibility Assessment [end]] | | |
+Alternate Succession[Criminality Activity [start], Info Sharing Assessment [start]] | | |
+Alternate Succession[Cost Recovery [start], Criminality Activity [end]] | | |
+Alternate Succession[Criminality Activity [end], Final Assessment [end]] | | |
+Alternate Succession[Criminality Activity [end], Application Status [end]] | | |
+Alternate Succession[Criminality Activity [start], Integrated Search [end]] | | |
+Alternate Succession[Criminality Activity [start], Integrated Search [start]] | | |
+Alternate Succession[Candidate Search [start], Criminality Activity [end]] | | |
+Alternate Succession[Candidate Search [end], Criminality Activity [end]] | | |
+Alternate Succession[Criminality Activity [start], Final Assessment [start]] | | |
+Alternate Succession[Criminality Activity [start], Misrepresentation - NIL] | | |
+Alternate Succession[Criminality Activity [start], Received - Date] | | |
+Alternate Succession[Info Sharing Assessment [end], Final Assessment [end]] | | |
+Chain Succession[Auto Promote [end], Auto Promote [start]] | | |
+Chain Succession[Auto Promote Decision [start], Auto Promote [end]] | | |
+Chain Succession[Auto Promote Decision [end], Auto Promote Decision [start]] | | |
+Alternate Succession[Auto Promote [end], Candidate ID Decision [end]] | | |
+Alternate Succession[Auto Promote Decision [end], Candidate ID Decision [end]] | | |
+Alternate Succession[Candidate Search [end], Cost Recovery [end]] | | |
+Alternate Succession[Auto Promote Decision [end], Auto Promote [start]] | | |
+Alternate Succession[Criminality Activity [end], Info Sharing Assessment [end]] | | |
+Chain Succession[Criminality Activity [start], Eligibility Assessment [start]] | | |
+Alternate Succession[Criminality Activity [end], Eligibility Assessment [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Criminality Activity [end]] | | |
+Alternate Succession[Candidate ID Decision [end], Criminality Activity [end]] | | |
+Alternate Succession[Candidate ID [start], Criminality Activity [end]] | | |
+Alternate Succession[Candidate ID [end], Criminality Activity [end]] | | |
+Alternate Succession[Candidate ID Decision [start], Cost Recovery [end]] | | |

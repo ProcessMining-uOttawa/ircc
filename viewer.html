@@ -270,7 +270,7 @@
                         let title = node.find("text:last-child").text()
                         title = title.replace(re, "")
                         
-                        if (title.includes("[start]") || title.includes("[end]")) {
+                        if (title.includes("[begin]") || title.includes("[end]")) {
                             node[0].classList.add("subprocess")
                             node.click(function() {
                                 name = title.substring(0, title.indexOf(" ["))

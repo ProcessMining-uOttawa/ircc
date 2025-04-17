@@ -27,7 +27,7 @@ def separ_subproc(subproc_evts, non_subproc_evts, parent_col, subactiv_col, non_
         
     # per case, per subprocess, replace all sub-events by single start & end event
     sorted_grouped = subproc_evts.sort_values(['case:concept:name', parent_col, 'time:timestamp']).groupby(['case:concept:name', parent_col])
-    start_evts = sorted_grouped.first().reset_index(); start_evts['concept:name'] = start_evts[parent_col] + ' [start]'
+    start_evts = sorted_grouped.first().reset_index(); start_evts['concept:name'] = start_evts[parent_col] + ' [begin]'
     end_evts = sorted_grouped.last().reset_index(); end_evts['concept:name'] = end_evts[parent_col] + ' [end]'
     abstract_log = pd.concat([start_evts, end_evts])
     

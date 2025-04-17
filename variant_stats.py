@@ -33,8 +33,8 @@ def get_variant_ratio(log, vars_stats):
     var_ratio = round((num_vars / num_traces) * 100, 2)
     return f"# traces = {num_traces}, # vars = {num_vars}, ratio = {var_ratio}"
 
-def get_variants_stats(log, unordered=False):
-    variants = get_variants(log, unordered)
+def get_variants_stats(log, plot=True):
+    variants = get_variants(log, unordered=False)
     variants = pd.DataFrame(variants.items())
     num_seq = len(log['case:concept:name'].unique())
     num_var = variants.shape[0]
@@ -54,6 +54,10 @@ def get_variants_stats(log, unordered=False):
 
     var_perc = 100 / num_var
     variants_sorted['var_perc_cumul'] = variants_sorted.apply(lambda row: (row.name + 1) * var_perc, axis=1)
+
+    if plot:
+        ax = variants_sorted[['cov_perc']].plot.bar()
+        ax.xaxis.set_visible(False)
 
     return variants_sorted
 
