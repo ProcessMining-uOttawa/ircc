@@ -1,0 +1,447 @@
+<html>
+    <head>
+        <!-- <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script> -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+         <!-- https://github.com/mdaines/viz-js/releases/tag/release-viz-3.12.0 -->
+        <script src="js/viz-standalone.js"></script>
+        <style>
+            g.subprocess > text:last-child { cursor: pointer }
+            .subprocess polyline, .subprocess path, .subprocess polygon { 
+                stroke-width: 2px;
+            }
+            .subprocess text { 
+                /* outline: solid 3px blue; 
+                outline-offset: -2px; */
+                font: bold 12px Times;
+                text-decoration: underline;
+            }
+            #trail {
+                font-size: 28px;
+                padding: 25px;
+            }
+
+            a.stack_entry { cursor: pointer; color: blue; text-decoration: underline }
+            .sub { font-size: 24px }
+            #formats , #anns { font-size: 20px; margin-left: 25px }
+            .format , .ann { cursor: pointer; color: blue; text-decoration: underline; }
+
+            #legend { 
+                /* cannot use position:fixed; only want fixed for horizontal scrolling */
+                /* position: absolute; bottom: 15px; right: 15px; */
+                position: fixed; bottom: 15px; left: 15px;
+                padding: 5px;
+                background-color: rgb(244, 244, 244);
+                opacity: 0.75;
+                width: max-content;
+            }
+
+            #legend h3 {
+                margin: 0 0 10px 0;
+                padding: 0;
+                font-size: 18px;
+            }
+
+            #legend table { text-align: left; font-size: 16px; }
+            #legend table td { padding: 1px }
+            #legend table td:nth-child(3) { cursor: help }
+            #legend table.dcr img { width: 30px; }
+            #legend table.bpmn img { width: 30px; }
+            #legend img { margin-right: 5px }
+            #legend img.dfg { width: 75px; position: relative; top: 2px }
+            #legend table.dcr img { position: relative; top: -1px }
+
+        </style>
+    </head>
+    <body>
+        <div id="trail"></div>
+        <div id="formats"></div>
+        <div id="anns"></div>
+        <div id="legend">
+            <span id="close"></span>
+            <div class="content"></div>            
+        </div>
+        <div id="svg"></div>
+
+        <script>
+            // $( function() {
+            //   $( document ).tooltip();
+            // } );
+        </script>
+        <!-- <style>label { position: relative; }</style> -->
+
+        <script>
+            // function positionLegend() {
+            //     let left = document.body.clientWidth - 20
+            //     let bottom = document.body.clientHeight
+            //     console.log(bottom, $(this).scrollTop(), $('#legend').height())
+            //     $('#legend').css({
+            //         'bottom': 0,
+            //         'top': bottom - $('#legend').height(),
+            //         'left': left - $('#legend').width() + $(this).scrollLeft() - 15
+            //     });
+            // }
+
+            // $(window).scroll(positionLegend)
+            // $(window).resize(positionLegend)
+        </script>
+
+        <script type="module">
+            const viz = await Viz.instance()
+
+            const all_formats = [ "bpmn", "dcr", "heur", "dfg" ]
+            const all_anns = [ "frequency", "performance" ]
+            const formats_with_ann = [ "dfg", "heur" ]
+
+            class Navigation {
+
+                constructor() {
+                    this.stack = new Stack()
+
+                    // TODO
+                    // // support for browser's back (not forward) button
+                    // window.addEventListener("popstate", (event) => {
+                    //     console.log(event.state, this.stack.length())
+                    //     if (Number.isInteger(event.state) && (event.state + 1) < (this.stack.length()))
+                    //         this.prior_graph(event.state)
+                    // })
+                }
+
+                async init() {
+                    this.graphs = await new Graphs().load()
+
+                    let self = this
+                    window.goto = function(lvl) { self.prior_graph.call(self, lvl) }
+
+                    return this
+                }
+
+                new_graph(name) {
+                    let graph = new Graph(this, name)
+                    graph.load(this)
+
+                    // make sure back btn is shown
+                    // history.pushState(this.stack.length(), null, null)
+                    this.stack.push(graph)
+                    this.setup_trail()
+
+                    this.setup_vis()
+                }
+
+                prior_graph(lvl) {
+                    let prior = this.stack.pop(lvl)
+                    prior.show(this)
+
+                    this.setup_trail()
+                    this.setup_vis()
+                }
+
+                switch_vis(type, value) {
+                    let cur = this.stack.last()
+
+                    if (type == 'format') {
+                        if (formats_with_ann.includes(value)) {
+                            let ann = all_anns[0] // use first as default
+                            cur.switch_format(value, ann)
+                        } else {
+                            cur.switch_format(value)
+                        }
+                    } else {
+                        cur.switch_ann(value)
+                    }
+
+                    cur.load(this)
+
+                    this.setup_vis()
+                }
+
+                setup_vis() {
+                    this.setup_legend()
+                    this.setup_vis_options()
+                }
+
+                setup_legend() {
+                    let cur = this.stack.last()
+                    let format = cur.pref['format']
+
+                    let legend = $('#legend')
+                    switch (format) {
+                         case 'dcr':
+                            let response = "If A occurs, then B must occur afterwards. If A does not occur, then B could still occur on its own, but doesn't have to."
+                            let condition = "If B occurs, then A must have occurred previously. If B does not occur, then A could still occur on its own, but doesn't have to."
+                            let succession = "A and B always occur together, and B must occur after A."
+                            let exclusion = "After A occurs, then B can no longer occur. (E.g., A no longer occurring after A occurs; this means A only happens once.)"
+                            
+                            legend.html(`
+                                <h3>Dynamic Condition Response (DCR)</h3>
+                                <table class='dcr'>
+                                    <tr><th></th><th>Name</th><th>Description</th></tr>
+                                    <tr><td>A <img src="img/response.png"> B</td><td><b>response</b></td><td title="${response}">B is a response to A.</td></tr>
+                                    <tr><td>A <img src="img/condition.png"> B</td><td><b>condition</b></td><td title="${condition}">A is a condition for B.</td></tr>
+                                    <tr><td>A <img src="img/succession.png"> B</td><td><b>succession</b></td><td title="${succession}">B always succeeds A.</td></tr>
+                                    <tr><td>A <img src="img/exclusion.png"> B</td><td><b>exclusion</b></td><td title="${exclusion}">A excludes B.</td></tr>
+                                </table>
+                            `)
+                            break
+                            case 'dfg':
+                            case 'heur':
+                                legend.html(`
+                                    <h3>Directly-Follows Graph (DFG)</h3>
+                                    <p><img class='dfg' src="img/dfg.png"> B directly follows A in at least one case.</p>
+                                `)
+                                break
+
+                            case 'bpmn':
+                                let and = "An AND 'split' means that activities in the branches will occur in parallel. This ends with the AND 'join' (same symbol, after the split)."
+                                let xor = "An XOR 'split' means that only one branch will be followed. This ends with the XOR 'join' (same symbol, after the split)."
+                                let or = "An OR 'split' means that one or more branches will be followed. This ends with the OR 'join' (same symbol, after the split)."
+                                legend.html(`
+                                    <h3>Business Process Model & Notation (BPMN)</h3>
+                                    <table class='bpmn'>
+                                        <tr><th></th><th>Name</th><th>Description</th></tr>
+                                        <tr><td><img src="img/and.png"></td><td><b>AND</b></td><td title="${and}">branches run in parallel.</td></tr>
+                                        <tr><td><img src="img/xor.png"></td><td><b>XOR</b></td><td title="${xor}">only 1 branch will be followed.</td></tr>
+                                        <tr><td><img src="img/or.png"></td><td><b>OR</b></td><td title="${or}">1 or more branches will be followed.</td></tr>
+                                    </table>
+                                `)
+                                break
+
+                            default:
+                                break
+                    }
+                }
+
+                setup_vis_options() {
+                    let cur = this.stack.last()
+                    let self = this
+                    this.__setup_links("formats", "format", 
+                        all_formats, cur.pref['format'],
+                        (label) => self.switch_vis('format', label))
+
+                    if (formats_with_ann.includes(cur.pref['format'])) {
+                        $("#anns").show()
+                        this.__setup_links("anns", "ann", 
+                            all_anns, cur.pref['ann'],
+                            (label) => self.switch_vis('ann', label))
+                    } else {
+                        $("#anns").hide()
+                    }
+                }
+
+                __setup_links(cont_id, el_cls, values, cur_val, onclick) {
+                    let anns = [ "frequency", "performance" ]
+                    $(`#${cont_id}`).html(values.map(v =>
+                        (cur_val != v ? `<a class="${el_cls}">${v}</a>` : v) 
+                    ).join(" | "))
+
+                    let self = this
+                    $(`.${el_cls}`).each(function() {
+                        let link = $(this)
+                        link.click(function() {
+                            let label = link.text()
+                            onclick.call(self, label)
+                        })
+                    })
+                }
+
+                setup_trail() {
+                    $("#trail").html(this.stack.entries())
+                }
+            }
+
+            class Graphs {
+
+                constructor() {}
+
+                async load() {
+                    this.graphs = { 0 : await this.__load_list(0), 1 : await this.__load_list(1), 2 : await this.__load_list(2) }
+                    return this
+                }
+
+                async __load_list(lvl) {
+                    return JSON.parse(await (await fetch(`../lifecycles/level${lvl}/graphs.json`)).text())
+                }
+
+                __safe_name(name) {
+                    return name.replace("/", "_")
+                }
+
+                get_lvl(name) {
+                    name = this.__safe_name(name)
+
+                    for (let lvl in this.graphs) {
+                        if (this.graphs[lvl]['all'].includes(name))
+                            return lvl
+                    }
+
+                    console.error("not found:", name)
+                    return -1
+                }
+                
+                get_path(graph) {
+                    let path = `../lifecycles/level${graph.lvl}/${graph.pref['format']}`
+                    if ('ann' in graph.pref && graph.pref['ann'] != undefined) {
+                        path += `/${graph.pref['ann']}`
+                    }
+                    
+                    let name = this.__safe_name(graph.name)
+                    return `${path}/${name}.gv`
+                }
+
+                // returns { format: <format>, ann: <ann> } 
+                // (possible that ann is undefined)
+                get_pref(graph) {
+                    name = this.__safe_name(graph.name)
+                    return this.graphs[graph.lvl]['prefs'][name]
+                }
+
+                set_pref(graph, entry) {
+                    name = this.__safe_name(graph.name)
+                    this.graphs[graph.lvl]['prefs'][name] = entry
+                }
+            }
+
+            class Graph {
+
+                constructor(nav, name) {
+                    this.nav = nav
+                    this.name = name
+
+                    this.lvl = nav.graphs.get_lvl(name)
+                    this.pref = nav.graphs.get_pref(this)
+                }
+
+                switch_format(new_format, new_ann) {
+                    if (new_format != this.pref['format']) {
+                        this.pref['format'] = new_format
+                        this.pref['ann'] = new_ann
+                        this.nav.graphs.set_pref(this, this.pref)
+                    }
+                }
+
+                switch_ann(new_ann) {
+                    if (new_ann != this.pref['ann']) {
+                        this.pref['ann'] = new_ann
+                        this.nav.graphs.set_pref(this, this.pref)
+                    }
+                }
+
+                async load() {
+                    let path = this.nav.graphs.get_path(this)
+                    try {
+                        console.log("loading:", path)
+                        if (path == null) {
+                            console.error("not found:", path)
+                            return
+                        }
+
+                        let svg = await (await fetch(path)).text()
+                        this.viz = viz.renderSVGElement(svg);
+                        
+                        this.show()
+
+                        // anonymize
+                        // $('text').html("")
+
+                    } catch (error) {
+                        window.alert("ERROR")
+                        console.error("error loading graph:", path, error)
+                    }
+                }
+
+                show() {
+                    let svg = $("#svg")
+                    svg.html(this.viz)
+
+                    // - adjust width of SVG element to suit window
+                    // this took me ALMOST AN HOUR
+                    // all give wrong widths: offsetWidth, width(), getBBox(), getComputedStyle, getBoundingClientRect
+                    // width, viewingBox of svg element is also incorrect (so, _have_ to set html contents of svg first)
+                    // scrollWidth only thing that works
+                    // console.log(svg[0].scrollWidth, screen.availWidth)
+                    let screenWidth = screen.availWidth - 25
+                    if (svg[0].scrollWidth > screenWidth) {
+                        let newRatio = screenWidth / svg[0].scrollWidth
+                        let newWidth = screenWidth
+                        // don't reduce it too much ...
+                        if (newRatio <= 0.5) {
+                            newRatio = 0.5
+                            newWidth = svg[0].scrollWidth * newRatio
+                        }
+                        let newHeight = svg[0].scrollHeight * newRatio
+                        $(this.viz).width(newWidth)
+                        $(this.viz).height(newHeight)
+                    }
+                    svg.html(this.viz)
+
+                    let self = this, re = /\s+\(\d+\)$/
+                    $("#svg .node").each(function() {
+                        let node = $(this)
+                        let title = node.find("text:last-child").text()
+                        title = title.replace(re, "")
+                        
+                        if (title.includes("[begin]") || title.includes("[end]")) {
+                            node[0].classList.add("subprocess")
+                            node.click(function() {
+                                name = title.substring(0, title.indexOf(" ["))
+
+                                self.nav.new_graph(name)
+                            })
+                        }
+                    })
+
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            class Stack {
+
+                constructor() {
+                    this.stack = []
+                }
+
+                push(entry) {
+                    this.stack.push(entry)
+                }
+
+                pop(until) {
+                     // (until+1 is target length)
+                    while (this.length() > (until + 1))
+                        this.stack.splice(this.length() - 1)
+
+                    return this.last()
+                }
+
+                last() {
+                    return this.stack[this.length() - 1]
+                }
+
+                length() {
+                    return this.stack.length
+                }
+
+                entries() {
+                    let els = []
+                    for (let i = 0; i < this.length(); i++) {
+                        let el = null
+                        let cls = `stack_entry ${i > 0 ? "sub" : "" }`
+                        if (i < this.length() - 1)
+                            el = `<a class="${cls}" onclick="goto(${i})">${this.stack[i].name}</a>`
+                        else
+                            el = `<span class="${cls}">${this.stack[i].name}</span>`
+                        els.push(el)
+                    }
+                    return els.join(" < ")
+                }
+            }
+
+            let nav = await new Navigation().init()
+            nav.new_graph("main")
+
+            // document.querySelectorAll("#svg .node").forEach(function(node) {
+            //     // console.log(node)
+            //     node.addEventListener("click", () => { console.log(node) })
+            // })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,521 @@
+Activities
+
+1) Final Assessment [end] : Exists in 100.00% of traces in the log
+
+2) Cost Recovery [begin] : Exists in 100.00% of traces in the log
+
+3) Info Sharing Assessment [end] : Exists in 100.00% of traces in the log
+
+4) Eligibility Assessment [begin] : Exists in 100.00% of traces in the log
+
+5) Application Status [begin] : Exists in 100.00% of traces in the log
+
+6) Info Sharing Assessment [begin] : Exists in 100.00% of traces in the log
+
+7) Cost Recovery [end] : Exists in 100.00% of traces in the log
+
+8) Application Status [end] : Exists in 100.00% of traces in the log
+
+9) Final Assessment [begin] : Exists in 100.00% of traces in the log
+
+10) Eligibility Assessment [end] : Exists in 100.00% of traces in the log
+
+11) Misrepresentation - NIL : Exists in 100.00% of traces in the log
+
+12) Received - Date : Exists in 100.00% of traces in the log
+
+13) Candidate Search [begin] : Exists in 98.93% of traces in the log
+
+14) Candidate Search [end] : Exists in 98.93% of traces in the log
+
+15) Integrated Search [begin] : Exists in 98.91% of traces in the log
+
+16) Integrated Search [end] : Exists in 98.91% of traces in the log
+
+17) Candidate ID Decision [begin] : Exists in 97.13% of traces in the log
+
+18) Candidate ID Decision [end] : Exists in 97.13% of traces in the log
+
+19) Candidate ID [end] : Exists in 96.42% of traces in the log
+
+20) Candidate ID [begin] : Exists in 96.42% of traces in the log
+
+21) Auto Promote Decision [end] : Exists in 95.88% of traces in the log
+
+22) Auto Promote Decision [begin] : Exists in 95.88% of traces in the log
+
+23) Auto Promote [end] : Exists in 95.53% of traces in the log
+
+24) Auto Promote [begin] : Exists in 95.53% of traces in the log
+
+25) Criminality Activity [begin] : Exists in 93.56% of traces in the log
+
+26) Criminality Activity [end] : Exists in 93.56% of traces in the log
+
+27) Other Reqs Assessment [end] : Exists in 87.60% of traces in the log
+
+28) Other Reqs Assessment [begin] : Exists in 87.60% of traces in the log
+
+29) Other Req Assessment [end] : Exists in 87.56% of traces in the log
+
+30) Other Req Assessment [begin] : Exists in 87.56% of traces in the log
+
+31) Application Transfer - Transferred : Exists in 69.10% of traces in the log
+
+32) Medical Activity [begin] : Exists in 40.90% of traces in the log
+
+33) Medical Activity [end] : Exists in 40.90% of traces in the log
+
+34) Post Identity Checks [end] : Exists in 3.65% of traces in the log
+
+35) Post Identity Checks [begin] : Exists in 3.65% of traces in the log
+
+36) Identity Verification [end] : Exists in 3.62% of traces in the log
+
+37) Identity Verification [begin] : Exists in 3.62% of traces in the log
+
+Constraints
+
+1) In 100.00% of cases in the log, Application Status [begin] occurs first
+
+2) In 100.00% of cases in the log, Info Sharing Assessment [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+3) In 100.00% of cases in the log, Application Status [begin] and Cost Recovery [end] occur together if and only if the latter follows the former, and they alternate each other
+
+4) In 100.00% of cases in the log, Info Sharing Assessment [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+5) In 100.00% of cases in the log, Final Assessment [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+6) In 100.00% of cases in the log, Received - Date and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+7) In 100.00% of cases in the log, Application Status [begin] and Cost Recovery [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+8) In 100.00% of cases in the log, Misrepresentation - NIL and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+9) In 100.00% of cases in the log, Application Status [begin] and Eligibility Assessment [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+10) In 100.00% of cases in the log, Application Status [begin] and Info Sharing Assessment [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+11) In 100.00% of cases in the log, Eligibility Assessment [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+12) In 100.00% of cases in the log, Eligibility Assessment [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+13) In 100.00% of cases in the log, Received - Date and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+14) In 100.00% of cases in the log, Application Status [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+15) In 100.00% of cases in the log, Application Status [begin] and Received - Date occur together if and only if the latter follows the former, and they alternate each other
+
+16) In 100.00% of cases in the log, Application Status [begin] and Misrepresentation - NIL occur together if and only if the latter follows the former, and they alternate each other
+
+17) In 100.00% of cases in the log, Final Assessment [begin] and Misrepresentation - NIL occur together if and only if the latter follows the former, and they alternate each other
+
+18) In 100.00% of cases in the log, Application Status [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+19) In 100.00% of cases in the log, Final Assessment [begin] and Received - Date occur together if and only if the latter follows the former, and they alternate each other
+
+20) In 100.00% of cases in the log, Info Sharing Assessment [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+21) In 100.00% of cases in the log, Application Status [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+22) In 100.00% of cases in the log, Application Status [begin] and Final Assessment [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+23) In 100.00% of cases in the log, Final Assessment [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+24) In 100.00% of cases in the log, Misrepresentation - NIL and Received - Date occur together if and only if the latter follows the former, and they alternate each other
+
+25) In 100.00% of cases in the log, Final Assessment [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+26) In 100.00% of cases in the log, Application Status [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+27) In 100.00% of cases in the log, Eligibility Assessment [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+28) In 100.00% of cases in the log, Final Assessment [begin] occurs exactly once
+
+29) In 100.00% of cases in the log, Info Sharing Assessment [begin] occurs exactly once
+
+30) In 100.00% of cases in the log, Cost Recovery [end] occurs exactly once
+
+31) In 100.00% of cases in the log, Cost Recovery [begin] and Cost Recovery [end] occur together if and only if the latter follows the former, and they alternate each other
+
+32) In 100.00% of cases in the log, Misrepresentation - NIL occurs exactly once
+
+33) In 100.00% of cases in the log, Final Assessment [end] occurs exactly once
+
+34) In 100.00% of cases in the log, Application Status [end] occurs exactly once
+
+35) In 100.00% of cases in the log, Eligibility Assessment [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+36) In 100.00% of cases in the log, Eligibility Assessment [end] occurs exactly once
+
+37) In 100.00% of cases in the log, Received - Date occurs exactly once
+
+38) In 100.00% of cases in the log, Application Status [begin] occurs exactly once
+
+39) In 100.00% of cases in the log, Eligibility Assessment [begin] occurs exactly once
+
+40) In 100.00% of cases in the log, Cost Recovery [begin] occurs exactly once
+
+41) In 100.00% of cases in the log, Info Sharing Assessment [end] occurs exactly once
+
+42) In 100.00% of cases in the log, Other Reqs Assessment [end] occurs at most once
+
+43) In 100.00% of cases in the log, Eligibility Assessment [begin] and Misrepresentation - NIL occur together if and only if the latter follows the former, and they alternate each other
+
+44) In 100.00% of cases in the log, Other Req Assessment [end] occurs at most once
+
+45) In 100.00% of cases in the log, Eligibility Assessment [begin] and Received - Date occur together if and only if the latter follows the former, and they alternate each other
+
+46) In 100.00% of cases in the log, Eligibility Assessment [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+47) In 100.00% of cases in the log, Other Reqs Assessment [begin] occurs at most once
+
+48) In 100.00% of cases in the log, Other Req Assessment [begin] occurs at most once
+
+49) In 100.00% of cases in the log, Misrepresentation - NIL and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+50) In 100.00% of cases in the log, Eligibility Assessment [begin] and Info Sharing Assessment [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+51) In 100.00% of cases in the log, Medical Activity [begin] occurs at most once
+
+52) In 100.00% of cases in the log, Medical Activity [end] occurs at most once
+
+53) In 100.00% of cases in the log, Cost Recovery [end] and Info Sharing Assessment [begin] occur together
+
+54) In 99.92% of cases in the log, Cost Recovery [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+55) In 99.87% of cases in the log, Cost Recovery [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+56) In 99.48% of cases in the log, Cost Recovery [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+57) In 99.43% of cases in the log, Cost Recovery [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+58) In 98.95% of cases in the log, Misrepresentation - NIL and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+59) In 98.95% of cases in the log, Info Sharing Assessment [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+60) In 98.95% of cases in the log, Final Assessment [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+61) In 98.95% of cases in the log, Received - Date and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+62) In 98.95% of cases in the log, Eligibility Assessment [begin] and Final Assessment [begin] occur together if and only if the latter immediately follows the former
+
+63) In 98.93% of cases in the log, Candidate Search [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+64) In 98.93% of cases in the log, Candidate Search [begin] and Cost Recovery [end] occur together if and only if the latter follows the former, and they alternate each other
+
+65) In 98.93% of cases in the log, Candidate Search [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+66) In 98.93% of cases in the log, Candidate Search [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+67) In 98.93% of cases in the log, Candidate Search [begin] and Candidate Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+68) In 98.93% of cases in the log, Candidate Search [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+69) In 98.93% of cases in the log, Application Status [begin] and Candidate Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+70) In 98.93% of cases in the log, Application Status [begin] and Candidate Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+71) In 98.93% of cases in the log, Candidate Search [end] occurs exactly once
+
+72) In 98.93% of cases in the log, Candidate Search [begin] occurs exactly once
+
+73) In 98.93% of cases in the log, Candidate Search [end] and Misrepresentation - NIL occur together
+
+74) In 98.91% of cases in the log, Eligibility Assessment [begin] and Integrated Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+75) In 98.91% of cases in the log, Application Status [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+76) In 98.91% of cases in the log, Candidate Search [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+77) In 98.91% of cases in the log, Integrated Search [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+78) In 98.91% of cases in the log, Final Assessment [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+79) In 98.91% of cases in the log, Integrated Search [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+80) In 98.91% of cases in the log, Application Status [begin] and Integrated Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+81) In 98.91% of cases in the log, Eligibility Assessment [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+82) In 98.91% of cases in the log, Final Assessment [begin] and Integrated Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+83) In 98.91% of cases in the log, Info Sharing Assessment [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+84) In 98.91% of cases in the log, Candidate Search [begin] and Integrated Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+85) In 98.91% of cases in the log, Integrated Search [begin] occurs exactly once
+
+86) In 98.91% of cases in the log, Integrated Search [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+87) In 98.91% of cases in the log, Integrated Search [end] occurs exactly once
+
+88) In 98.91% of cases in the log, Integrated Search [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+89) In 98.91% of cases in the log, Info Sharing Assessment [begin] and Integrated Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+90) In 98.91% of cases in the log, Integrated Search [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+91) In 98.88% of cases in the log, Info Sharing Assessment [begin] and Misrepresentation - NIL occur together if and only if the latter follows the former, and they alternate each other
+
+92) In 98.88% of cases in the log, Info Sharing Assessment [begin] and Received - Date occur together if and only if the latter follows the former, and they alternate each other
+
+93) In 98.85% of cases in the log, Candidate Search [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+94) In 98.84% of cases in the log, Candidate Search [end] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+95) In 98.80% of cases in the log, Candidate Search [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+96) In 98.67% of cases in the log, Candidate Search [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+97) In 98.66% of cases in the log, Received - Date and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+98) In 98.66% of cases in the log, Misrepresentation - NIL and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+99) In 98.63% of cases in the log, Candidate Search [begin] and Cost Recovery [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+100) In 98.59% of cases in the log, Application Transfer - Transferred occurs at most twice
+
+101) In 98.58% of cases in the log, Cost Recovery [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+102) In 98.50% of cases in the log, Cost Recovery [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+103) In 97.88% of cases in the log, Integrated Search [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+104) In 97.88% of cases in the log, Integrated Search [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+105) In 97.45% of cases in the log, Integrated Search [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+106) In 97.40% of cases in the log, Cost Recovery [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+107) In 97.40% of cases in the log, Integrated Search [end] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+108) In 97.13% of cases in the log, Candidate ID Decision [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+109) In 97.13% of cases in the log, Candidate ID Decision [begin] and Candidate ID Decision [end] occur together if and only if the latter follows the former, and they alternate each other
+
+110) In 97.13% of cases in the log, Candidate ID Decision [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+111) In 97.13% of cases in the log, Candidate ID Decision [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+112) In 97.13% of cases in the log, Candidate ID Decision [end] occurs exactly once
+
+113) In 97.13% of cases in the log, Candidate ID Decision [begin] occurs exactly once
+
+114) In 97.13% of cases in the log, Application Status [begin] and Candidate ID Decision [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+115) In 97.13% of cases in the log, Application Status [begin] and Candidate ID Decision [end] occur together if and only if the latter follows the former, and they alternate each other
+
+116) In 97.13% of cases in the log, Candidate ID Decision [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+117) In 97.13% of cases in the log, Candidate ID Decision [begin] and Eligibility Assessment [begin] occur together
+
+118) In 97.13% of cases in the log, Candidate ID Decision [end] and Info Sharing Assessment [begin] occur together
+
+119) In 97.12% of cases in the log, Candidate ID Decision [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+120) In 97.10% of cases in the log, Candidate ID Decision [end] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+121) In 97.08% of cases in the log, Candidate Search [end] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+122) In 97.04% of cases in the log, Candidate ID Decision [begin] and Candidate Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+123) In 96.88% of cases in the log, Candidate ID Decision [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+124) In 96.60% of cases in the log, Candidate ID Decision [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+125) In 96.50% of cases in the log, Info Sharing Assessment [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+126) In 96.42% of cases in the log, Application Status [begin] and Candidate ID [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+127) In 96.42% of cases in the log, Candidate ID [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+128) In 96.42% of cases in the log, Candidate ID [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+129) In 96.42% of cases in the log, Candidate ID [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+130) In 96.42% of cases in the log, Candidate ID Decision [begin] and Candidate ID [end] occur together if and only if the latter follows the former, and they alternate each other
+
+131) In 96.42% of cases in the log, Candidate ID [end] occurs exactly once
+
+132) In 96.42% of cases in the log, Candidate ID [begin] occurs exactly once
+
+133) In 96.42% of cases in the log, Application Status [begin] and Candidate ID [end] occur together if and only if the latter follows the former, and they alternate each other
+
+134) In 96.42% of cases in the log, Candidate ID Decision [begin] and Candidate ID [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+135) In 96.42% of cases in the log, Candidate ID [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+136) In 96.42% of cases in the log, Candidate ID [end] and Cost Recovery [begin] occur together
+
+137) In 96.41% of cases in the log, Candidate ID [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+138) In 96.41% of cases in the log, Final Assessment [begin] and Info Sharing Assessment [begin] occur together if and only if the latter immediately follows the former
+
+139) In 96.39% of cases in the log, Candidate ID [end] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+140) In 96.38% of cases in the log, Identity Verification [end] does not occur
+
+141) In 96.38% of cases in the log, Identity Verification [begin] does not occur
+
+142) In 96.35% of cases in the log, Post Identity Checks [end] does not occur
+
+143) In 96.35% of cases in the log, Post Identity Checks [begin] does not occur
+
+144) In 96.34% of cases in the log, Candidate ID [begin] and Candidate Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+145) In 96.19% of cases in the log, Candidate ID [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+146) In 96.19% of cases in the log, Candidate ID [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+147) In 95.88% of cases in the log, Application Status [begin] and Auto Promote Decision [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+148) In 95.88% of cases in the log, Application Status [begin] and Auto Promote Decision [end] occur together if and only if the latter follows the former, and they alternate each other
+
+149) In 95.88% of cases in the log, Auto Promote Decision [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+150) In 95.88% of cases in the log, Auto Promote Decision [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+151) In 95.88% of cases in the log, Auto Promote Decision [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+152) In 95.88% of cases in the log, Auto Promote Decision [end] occurs exactly once
+
+153) In 95.88% of cases in the log, Auto Promote Decision [begin] occurs exactly once
+
+154) In 95.88% of cases in the log, Auto Promote Decision [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+155) In 95.88% of cases in the log, Auto Promote Decision [end] and Eligibility Assessment [begin] occur together
+
+156) In 95.85% of cases in the log, Auto Promote Decision [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+157) In 95.78% of cases in the log, Auto Promote Decision [end] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+158) In 95.77% of cases in the log, Cost Recovery [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+159) In 95.67% of cases in the log, Auto Promote Decision [begin] and Candidate ID Decision [end] occur together if and only if the latter follows the former, and they alternate each other
+
+160) In 95.59% of cases in the log, Cost Recovery [begin] and Integrated Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+161) In 95.53% of cases in the log, Auto Promote [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+162) In 95.53% of cases in the log, Auto Promote [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+163) In 95.53% of cases in the log, Auto Promote [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+164) In 95.53% of cases in the log, Auto Promote [begin] occurs exactly once
+
+165) In 95.53% of cases in the log, Auto Promote [end] occurs exactly once
+
+166) In 95.53% of cases in the log, Auto Promote [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+167) In 95.53% of cases in the log, Application Status [begin] and Auto Promote [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+168) In 95.53% of cases in the log, Application Status [begin] and Auto Promote [end] occur together if and only if the latter follows the former, and they alternate each other
+
+169) In 95.53% of cases in the log, Auto Promote [begin] and Received - Date occur together
+
+170) In 95.53% of cases in the log, Auto Promote [begin] and Candidate Search [begin] occur together
+
+171) In 95.51% of cases in the log, Auto Promote Decision [begin] and Auto Promote [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+172) In 95.51% of cases in the log, Auto Promote Decision [begin] and Auto Promote [end] occur together if and only if the latter follows the former, and they alternate each other
+
+173) In 95.51% of cases in the log, Auto Promote [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+174) In 95.50% of cases in the log, Auto Promote [end] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+175) In 95.37% of cases in the log, Auto Promote [begin] and Candidate ID Decision [end] occur together if and only if the latter follows the former, and they alternate each other
+
+176) In 95.36% of cases in the log, Auto Promote Decision [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+177) In 95.36% of cases in the log, Auto Promote Decision [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+178) In 95.31% of cases in the log, Candidate ID Decision [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+179) In 95.28% of cases in the log, Candidate ID [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+180) In 95.15% of cases in the log, Candidate ID [begin] and Candidate ID [end] occur together if and only if the latter immediately follows the former
+
+181) In 95.10% of cases in the log, Candidate ID [end] and Candidate Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+182) In 95.09% of cases in the log, Auto Promote Decision [end] and Auto Promote [end] occur together if and only if the latter follows the former, and they alternate each other
+
+183) In 95.01% of cases in the log, Auto Promote [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+184) In 95.01% of cases in the log, Auto Promote [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+185) In 94.03% of cases in the log, Candidate ID [end] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+186) In 93.56% of cases in the log, Criminality Activity [begin] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+187) In 93.56% of cases in the log, Application Status [begin] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+188) In 93.56% of cases in the log, Criminality Activity [begin] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+189) In 93.56% of cases in the log, Criminality Activity [begin] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+190) In 93.56% of cases in the log, Criminality Activity [begin] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+191) In 93.56% of cases in the log, Criminality Activity [begin] occurs exactly once
+
+192) In 93.56% of cases in the log, Application Status [begin] and Criminality Activity [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+193) In 93.56% of cases in the log, Criminality Activity [end] occurs exactly once
+
+194) In 93.55% of cases in the log, Criminality Activity [begin] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+195) In 93.55% of cases in the log, Criminality Activity [begin] and Info Sharing Assessment [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+196) In 93.47% of cases in the log, Cost Recovery [begin] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+197) In 93.12% of cases in the log, Criminality Activity [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+198) In 92.77% of cases in the log, Criminality Activity [end] and Application Status [end] occur together if and only if the latter follows the former, and they alternate each other
+
+199) In 92.75% of cases in the log, Criminality Activity [end] and Integrated Search [end] occur together
+
+200) In 92.73% of cases in the log, Criminality Activity [begin] and Integrated Search [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+201) In 92.73% of cases in the log, Criminality Activity [begin] and Integrated Search [end] occur together if and only if the latter follows the former, and they alternate each other
+
+202) In 92.69% of cases in the log, Candidate Search [begin] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+203) In 92.63% of cases in the log, Candidate Search [end] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+204) In 92.47% of cases in the log, Criminality Activity [begin] and Final Assessment [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+205) In 92.47% of cases in the log, Criminality Activity [begin] and Eligibility Assessment [begin] occur together if and only if the latter follows the former, and they alternate each other
+
+206) In 92.47% of cases in the log, Criminality Activity [begin] and Misrepresentation - NIL occur together if and only if the latter follows the former, and they alternate each other
+
+207) In 92.47% of cases in the log, Criminality Activity [begin] and Received - Date occur together if and only if the latter follows the former, and they alternate each other
+
+208) In 92.42% of cases in the log, Info Sharing Assessment [end] and Final Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+209) In 92.40% of cases in the log, Auto Promote [begin] and Auto Promote [end] occur together if and only if the latter immediately follows the former
+
+210) In 92.31% of cases in the log, Auto Promote Decision [begin] and Auto Promote Decision [end] occur together if and only if the latter immediately follows the former
+
+211) In 92.24% of cases in the log, Auto Promote [end] and Candidate ID Decision [end] occur together if and only if the latter follows the former, and they alternate each other
+
+212) In 92.13% of cases in the log, Auto Promote Decision [end] and Candidate ID Decision [end] occur together if and only if the latter follows the former, and they alternate each other
+
+213) In 91.97% of cases in the log, Candidate Search [end] and Cost Recovery [end] occur together if and only if the latter follows the former, and they alternate each other
+
+214) In 91.96% of cases in the log, Auto Promote Decision [end] and Auto Promote [begin] occur together if and only if the latter immediately follows the former
+
+215) In 91.92% of cases in the log, Criminality Activity [end] and Info Sharing Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+216) In 91.10% of cases in the log, Criminality Activity [end] and Eligibility Assessment [end] occur together if and only if the latter follows the former, and they alternate each other
+
+217) In 91.08% of cases in the log, Candidate ID Decision [begin] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+218) In 91.05% of cases in the log, Candidate ID Decision [end] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+219) In 90.42% of cases in the log, Candidate ID [begin] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+220) In 90.39% of cases in the log, Candidate ID [end] and Criminality Activity [end] occur together if and only if the latter follows the former, and they alternate each other
+
+221) In 90.24% of cases in the log, Candidate ID Decision [begin] and Cost Recovery [end] occur together if and only if the latter follows the former, and they alternate each other
+
+222) In 90.03% of cases in the log, Auto Promote Decision [begin] and Criminality Activity [end] occur together
