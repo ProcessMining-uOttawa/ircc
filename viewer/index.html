@@ -50,7 +50,9 @@
             #legend img { margin-right: 5px }
             #legend img.dfg { width: 75px; position: relative; top: 2px }
             #legend table.dcr img { position: relative; top: -1px }
-
+            #legend { padding-right: 20px; }
+            #legend .close { position: absolute; top: 2px; right: 2px; cursor: pointer; font-weight: bold }
+            #legend .show { display: none; cursor: pointer; font-weight: bold }
         </style>
     </head>
     <body>
@@ -58,8 +60,11 @@
         <div id="formats"></div>
         <div id="anns"></div>
         <div id="legend">
-            <span id="close"></span>
-            <div class="content"></div>            
+            <div class="window">
+                <div class="close">(X)</div>
+                <div class="content"></div>
+            </div>
+            <div class="show">(show legend)</div>
         </div>
         <div id="svg"></div>
 
@@ -71,19 +76,8 @@
         <!-- <style>label { position: relative; }</style> -->
 
         <script>
-            // function positionLegend() {
-            //     let left = document.body.clientWidth - 20
-            //     let bottom = document.body.clientHeight
-            //     console.log(bottom, $(this).scrollTop(), $('#legend').height())
-            //     $('#legend').css({
-            //         'bottom': 0,
-            //         'top': bottom - $('#legend').height(),
-            //         'left': left - $('#legend').width() + $(this).scrollLeft() - 15
-            //     });
-            // }
-
-            // $(window).scroll(positionLegend)
-            // $(window).resize(positionLegend)
+            $('#legend .close').click((el) => { $('#legend .window').hide(); $('#legend .show').show() })
+            $('#legend .show').click((el) => { $('#legend .window').show(); $('#legend .show').hide() })
         </script>
 
         <script type="module">
@@ -164,7 +158,7 @@
                     let cur = this.stack.last()
                     let format = cur.pref['format']
 
-                    let legend = $('#legend')
+                    let legend = $('#legend .content')
                     switch (format) {
                          case 'dcr':
                             let response = "If A occurs, then B must occur afterwards. If A does not occur, then B could still occur on its own, but doesn't have to."
