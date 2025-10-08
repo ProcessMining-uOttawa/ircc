@@ -1,0 +1,16 @@
+TODO put logs (csv, xes) in separate "data" subfolder (latter folder is too big)
+
+- copy lifecycles/level[X] under viewer/
+
+- zip & upload ircc.zip (viewer/) to FTP server (n3.org)
+(FTP, 66.96.162.150, williamvanwoensel58292 - Zilly$84)
+
+- log into gcloud & dl zip file
+/var/www/html/pm $ sudo wget -O ircc.zip ftp://williamvanwoensel58292:Zilly%2484@66.96.162.150/ircc.zip
+
+- unpack
+(remove prior folder)
+/var/www/html/pm $ sudo rm -r ircc
+(unzip into ircc/)
+/var/www/html/pm $ sudo unzip ircc.zip
+/var/www/html/pm $ sudo mv viewer ircc

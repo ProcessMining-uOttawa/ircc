@@ -40,7 +40,8 @@ def mine_dfg(log, ann=ProcAnn.FREQ, output_path=None, save_gviz=False):
             vis_var = dfg_visualizer.Variants.PERFORMANCE
     
     # discover
-    dfg = dfg_discovery.apply(log, variant=mine_var)
+    parameters = { 'pm4py:param:start_timestamp_key': 'time:timestamp' }
+    dfg = dfg_discovery.apply(log, variant=mine_var, parameters = parameters)
 
     # visualize
     gviz = dfg_visualizer.apply(dfg, log=log, variant=vis_var)

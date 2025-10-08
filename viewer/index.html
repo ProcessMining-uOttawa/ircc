@@ -42,6 +42,9 @@
                 font-size: 18px;
             }
 
+            #legend h3.dfg { margin: 0 }
+            #legend h3.dfg + p { margin: 0 0 5px 0 }
+
             #legend table { text-align: left; font-size: 16px; }
             #legend table td { padding: 1px }
             #legend table td:nth-child(3) { cursor: help }
@@ -81,6 +84,8 @@
         </script>
 
         <script type="module">
+            const root = "lifecycles/filt_evt1p"
+
             const viz = await Viz.instance()
 
             const all_formats = [ "bpmn", "dcr", "heur", "dfg" ]
@@ -178,11 +183,21 @@
                             `)
                             break
                             case 'dfg':
-                            case 'heur':
                                 legend.html(`
-                                    <h3>Directly-Follows Graph (DFG)</h3>
+                                    <h3 class='dfg'>Directly-Follows Graph (DFG)</h3>
+                                    <p>(shows all directly-follows relations)</p>
                                     <p><img class='dfg' src="img/dfg.png"> B directly follows A in at least one case.</p>
                                 `)
+                                break
+
+                            
+                            case 'heur':
+                                legend.html(`
+                                    <h3 class='dfg'>Directly-Follows Graph (heuristic)</h3>
+                                    <p>(filters the directly-follows relations)</p>
+                                    <p><img class='dfg' src="img/dfg.png"> B directly follows A in at least one case.</p>
+                                `)
+                                break
                                 break
 
                             case 'bpmn':
@@ -253,7 +268,7 @@
                 }
 
                 async __load_list(lvl) {
-                    return JSON.parse(await (await fetch(`../lifecycles/level${lvl}/graphs.json`)).text())
+                    return JSON.parse(await (await fetch(`${root}/level${lvl}/graphs.json`)).text())
                 }
 
                 __safe_name(name) {
@@ -273,7 +288,7 @@
                 }
                 
                 get_path(graph) {
-                    let path = `../lifecycles/level${graph.lvl}/${graph.pref['format']}`
+                    let path = `${root}/level${graph.lvl}/${graph.pref['format']}`
                     if ('ann' in graph.pref && graph.pref['ann'] != undefined) {
                         path += `/${graph.pref['ann']}`
                     }
