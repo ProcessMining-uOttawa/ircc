@@ -6,9 +6,9 @@ def separ_subproc(subproc_evts, non_subproc_evts, parent_col, subactiv_col, non_
     # (we can just combine all cases here per activity)
     labeled_logs = [ (g, df) for g, df in subproc_evts.groupby(parent_col) ]
 
-    shutil.rmtree(dir_subproc)
-    os.mkdir(dir_subproc)
-    os.mkdir(os.path.join(dir_subproc, "logs"))
+    if os.path.exists(dir_subproc):
+        shutil.rmtree(dir_subproc)
+    os.makedirs(os.path.join(dir_subproc, "logs"))
 
     # per activity,
     for label, sublog in labeled_logs:        
