@@ -374,8 +374,8 @@
                         let newRatio = screenWidth / svg[0].scrollWidth
                         let newWidth = screenWidth
                         // don't reduce it too much ...
-                        if (newRatio <= 0.5) {
-                            newRatio = 0.5
+                        if (newRatio <= 0.7) {
+                            newRatio = 0.7
                             newWidth = svg[0].scrollWidth * newRatio
                         }
                         let newHeight = svg[0].scrollHeight * newRatio

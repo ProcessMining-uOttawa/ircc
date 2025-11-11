@@ -11,15 +11,17 @@ from pm4py.visualization.heuristics_net import visualizer as hn_visualizer
 from pm4py.visualization.process_tree import visualizer as pt_visualizer
 from pm4py.objects.conversion.process_tree import converter as process_tree_converter
 from pm4py.visualization.heuristics_net.variants.pydotplus_vis import get_graph as hn_get_graph
+from pm4py.statistics.attributes.log import get as attr_get
 import pandas as pd
 
 def get_log(path):
-    log = pd.read_csv(path)
+    log = pd.read_csv(path, index_col=False)
     log['time:timestamp'] = pd.to_datetime(log['time:timestamp'])
     return log
 
 class ProcAnn(Enum):
     FREQ = "frequency"
+    FREQ_PERC = "frequency (percentage)"
     PERF = "performance"
 
 def mine_vis(visualizer, gviz, output_path, save_gviz=False):
@@ -32,7 +34,7 @@ def mine_vis(visualizer, gviz, output_path, save_gviz=False):
 
 def mine_dfg(log, ann=ProcAnn.FREQ, output_path=None, save_gviz=False):
     match ann:
-        case ProcAnn.FREQ:
+        case ProcAnn.FREQ | ProcAnn.FREQ_PERC:
             mine_var = dfg_discovery.Variants.FREQUENCY
             vis_var = dfg_visualizer.Variants.FREQUENCY
         case ProcAnn.PERF:
@@ -43,8 +45,16 @@ def mine_dfg(log, ann=ProcAnn.FREQ, output_path=None, save_gviz=False):
     parameters = { 'pm4py:param:start_timestamp_key': 'time:timestamp' }
     dfg = dfg_discovery.apply(log, variant=mine_var, parameters = parameters)
 
+    activ_count = None
+    if ann == ProcAnn.FREQ_PERC:
+        num_traces = log['case:concept:name'].nunique()
+        dfg = { key: round((count / num_traces), 2) for key, count in dfg.items() }
+
+        activ_count = attr_get.get_attribute_values(log, 'concept:name')
+        activ_count = { key: round((count / num_traces), 2) for key, count in activ_count.items() }
+
     # visualize
-    gviz = dfg_visualizer.apply(dfg, log=log, variant=vis_var)
+    gviz = dfg_visualizer.apply(dfg, log=log, variant=vis_var, activities_count=activ_count)
     mine_vis(dfg_visualizer, gviz, output_path, save_gviz)
         
 
@@ -71,7 +81,7 @@ def mine_heur(log, ann=ProcAnn.FREQ, output_path=None, save_gviz=False):
     mine_vis(hn_visualizer, gviz, output_path, False)
     
     
-def mine_induct(log, convert_to=None, output_path=None, save_gviz=False):
+def mine_induct(log, convert_to=None, ann=None, output_path=None, save_gviz=False):
     # create the process tree
     # (wvw: drop "_tree" from call)
     tree = inductive_miner.apply(log)
@@ -80,7 +90,14 @@ def mine_induct(log, convert_to=None, output_path=None, save_gviz=False):
         match (convert_to):
             case 'petri_net': 
                 net, initial_marking, final_marking = process_tree_converter.apply(tree)
-                gviz = pn_visualizer.apply(net, initial_marking, final_marking)
+                variant = pn_visualizer.WO_DECORATION
+                if ann is not None:
+                    match (ann):
+                        case ProcAnn.FREQ:
+                            variant = pn_visualizer.FREQUENCY_DECORATION
+                        case ProcAnn.PERF:
+                            variant = pn_visualizer.PERFORMANCE_DECORATION
+                gviz = pn_visualizer.apply(net, initial_marking, final_marking, log=log, variant=variant)
             case 'bpmn':
                 bpmn = process_tree_converter.apply(tree, variant=process_tree_converter.Variants.TO_BPMN)
                 gviz = bpmn_visualizer.apply(bpmn)
@@ -398,3 +415,49 @@ def aggregate_events(log, events, max_timedelta, repl=None, verbose=False):
     # # drop other events not meeting those criteria (repl may also be in events)
     # # return log
     # return log.loc[(~ log['concept:name'].isin(events)) | (log['concept:name'] == repl), log.columns != 'evt_cnt']
+    
+    
+# stats for events
+
+# count total number of occurrences of events (absolute & percentage)
+def count_events(log, evt_col='concept:name', case_col='case:concept:name', plot=True):
+    total_evts = len(log[evt_col])
+    evt_counts = log.groupby(evt_col)[case_col].count().rename('cnt').to_frame()
+    evt_counts['perc'] = 100 / total_evts * evt_counts['cnt']
+    evt_counts = evt_counts.sort_values(by='perc', ascending=False)
+    # for idx, row in evt_counts.items():
+    #     print(idx, row[0], row[1])
+    if plot:
+        ax = evt_counts[['perc']].plot.bar()
+        # ax.xaxis.set_visible(False)
+    return evt_counts
+
+# per event, count number of cases that it occurs in (absolute & percentage)
+def count_cases_per_event(log, evt_col='concept:name', case_col='case:concept:name', plot=True):
+    total_cases = len(log[case_col].unique())
+    evts_cases = log.groupby(evt_col)[case_col].unique().rename('cases').to_frame()
+    evts_cases['cases'] = evts_cases['cases'].apply(len)
+    evts_cases['perc'] = 100 / total_cases * evts_cases['cases']
+    evt_cases = evts_cases.sort_values(by='perc', ascending=False)
+    if plot:
+        ax = evt_cases[['perc']].plot.bar()
+        # ax.xaxis.set_visible(False)
+    return evt_cases
+
+# filter log
+def filter_events_on_counts(log, counts, leq_perc, evt_col='concept:name'):
+    keep_evts = counts[counts['perc']>leq_perc].index.array
+    return log[log[evt_col].isin(keep_evts)]
+
+
+# stats for traces
+
+def get_trace_lengths(log, evt_col='concept:name', case_col='case:concept:name', plot=True):
+    trace_lens = log.groupby(case_col)[evt_col].count()
+    trace_lens = trace_lens.sort_values(ascending=False)
+    # for idx, cnt in trace_lens.items():
+    #     print(idx, cnt)
+    if plot:
+        ax = trace_lens.plot.bar()
+        ax.xaxis.set_visible(False)
+    return trace_lens
