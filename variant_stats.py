@@ -2,6 +2,7 @@ import pandas as pd
 import pm4py
 from collections import Counter
 from collections_extended import frozenbag
+import itertools
 from pm4py.objects.conversion.log import converter as log_converter
 from pm4py.objects.log.obj import EventLog
 
@@ -33,13 +34,25 @@ def get_variant_ratio(log, vars_stats):
     var_ratio = round((num_vars / num_traces) * 100, 2)
     return f"# traces = {num_traces}, # vars = {num_vars}, ratio = {var_ratio}"
 
-def get_variants_stats(log, plot=True):
+def get_variants_stats(log, plot=True, collapse_activseq=None):
     variants = get_variants(log, unordered=False)
     variants = pd.DataFrame(variants.items())
     num_seq = len(log['case:concept:name'].unique())
     num_var = variants.shape[0]
     
     variants.columns = ['sequence', 'cov_amt']
+    
+    # to reduce variability, merge sequences of identical activities within variants
+    # e.g., a - b - b - b - c => a -b - c ; a - b - c => a -b - c
+    if collapse_activseq is not None:
+        # group repeating sequences (also len 1) of activities into lists
+        collapsed = [[ list(group) for key, group in itertools.groupby(variant) ] for variant in variants['sequence'] ]
+        # "collapse" lists for activities mentioned in activs
+        collapsed = [[ [ f"{group[0]}+" ] if group[0] in collapse_activseq else group for group in variant ] for variant in collapsed ]
+        # flatten all of the lists
+        collapsed = [ tuple(a for group in variant for a in group) for variant in collapsed ]        
+        variants['sequence'] = pd.Series(collapsed)
+        variants = variants.groupby('sequence')['cov_amt'].sum().reset_index().sort_values(by='cov_amt', ascending=False)
 
     variants_sorted = variants.sort_values(by = 'cov_amt', ascending=False)
     variants_sorted = variants_sorted.reset_index(drop=True)
